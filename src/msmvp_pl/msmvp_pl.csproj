@@ -75,14 +75,21 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HomeModule.cs" />
+    <Compile Include="Modules\HomeModule.cs" />
+    <Compile Include="Modules\MvpModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="views\index.cshtml" />
+    <Content Include="Views\index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\_layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\mvp\mvp-index.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

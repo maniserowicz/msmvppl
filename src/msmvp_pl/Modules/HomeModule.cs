@@ -1,6 +1,6 @@
 ﻿using Nancy;
 
-namespace msmvp_pl
+namespace msmvp_pl.Modules
 {
     public class HomeModule : NancyModule
     {
