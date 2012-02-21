@@ -1,10 +1,16 @@
 ﻿<!DOCTYPE html>
 <html>
     <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
         <title>@RenderSection("Title", false)Program Microsoft MVP w Polsce</title>
     </head>
     <body>
-        <div>menu from layout</div>
+        <div>
+            <ul>
+                <li><a href="@Url.Content("~/")">Strona główna</a></li>
+                <li><a href="@Url.Content("~/mvp")">List polskich MVP</a></li>
+            </ul>
+        </div>
         <div>@RenderBody()</div>
     </body>
 </html>
