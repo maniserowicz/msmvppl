@@ -1,0 +1,31 @@
+#####################
+# Visual Studio
+#####################
+*.user
+*.suo
+*.sln.cache
+
+#####################
+# Build
+#####################
+bin/
+obj/
+
+#####################
+# Resharper
+#####################
+*.resharper
+*\_ReSharper*
+*_ReSharper*
+
+#####################
+# StyleCop
+#####################
+StyleCop.Cache
+
+#####################
+# nCrunch
+#####################
+*.ncrunchproject
+*.ncrunchsolution
+*.crunchsolution.cache
