@@ -3,14 +3,22 @@
     <head>
         <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
         <title>@RenderSection("Title", false)Program Microsoft MVP w Polsce</title>
+        
+        <link href="@Url.Content("~/assets/css/bootstrap.css")" rel="stylesheet">
+        <link href="@Url.Content("~/assets/css/bootstrap-responsive.css")" rel="stylesheet">
     </head>
     <body>
+        
         <div>
             <ul>
                 <li><a href="@Url.Content("~/")">Strona główna</a></li>
                 <li><a href="@Url.Content("~/mvp")">List polskich MVP</a></li>
             </ul>
         </div>
+
         <div>@RenderBody()</div>
+        
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+        <script src="@Url.Content("~/assets/js/bootstrap.js")"></script>
     </body>
 </html>
