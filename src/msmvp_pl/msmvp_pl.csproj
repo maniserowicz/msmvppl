@@ -98,7 +98,7 @@
     <Content Include="Views\_layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\mvp\mvp-index.cshtml" />
+    <Content Include="Views\mvp\mvp-list.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

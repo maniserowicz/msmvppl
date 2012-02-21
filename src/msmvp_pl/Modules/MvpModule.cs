@@ -6,7 +6,7 @@ namespace msmvp_pl.Modules
     {
         public MvpModule() : base("/mvp")
         {
-            Get["/"] = _ => View["mvp-index"];
+            Get["/"] = _ => View["mvp-list"];
         }
     }
 }
