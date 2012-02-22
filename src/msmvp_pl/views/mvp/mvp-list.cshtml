@@ -1,4 +1,5 @@
-﻿@{
+﻿@using System.Linq
+@{
     Layout = "_layout.cshtml";
 }
 
@@ -28,16 +29,18 @@
     <div class="tab-content">
         <div class="tab-pane fade in active" id="mvp-current">
             <ul class="nav nav-list">
-                @foreach (var mvp in @Model)
+                @foreach (var mvp in @Model.CurrentMvps())
                 {
-                    <li><a href="#">@mvp.Name (@mvp.Nominations.Count)</a></li>
+                    <li><a href="#">@mvp.Name (@mvp.Nominations.Count())</a></li>
                 }
             </ul>
         </div>
         <div class="tab-pane fade" id="mvp-ex">
             <ul class="nav nav-list">
-                <li><a href="#">ex mvp 1</a></li>
-                <li><a href="#">ex mvp 2</a></li>
+                @foreach (var mvp in @Model.ExMvps())
+                {
+                    <li><a href="#">@mvp.Name @(((System.Collections.Generic.IEnumerable<dynamic>)mvp.Nominations.ToList()).OrderBy(x => x.EndDate).Last().EndDate</a></li>
+                }
             </ul>
         </div>
     </div>
