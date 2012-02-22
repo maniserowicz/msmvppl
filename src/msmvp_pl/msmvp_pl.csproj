@@ -94,6 +94,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\DbProvider.cs" />
     <Compile Include="Modules\HomeModule.cs" />
     <Compile Include="Modules\MvpModule.cs" />
     <Compile Include="MvpBootstraper.cs" />

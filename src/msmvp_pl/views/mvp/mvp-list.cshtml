@@ -28,9 +28,10 @@
     <div class="tab-content">
         <div class="tab-pane fade in active" id="mvp-current">
             <ul class="nav nav-list">
-                <li><a href="#">current mvp 1</a></li>
-                <li><a href="#">current mvp 2</a></li>
-                <li><a href="#">current mvp 3</a></li>
+                @foreach (var mvp in @Model)
+                {
+                    <li><a href="#">@mvp.Name (@mvp.Nominations.Count)</a></li>
+                }
             </ul>
         </div>
         <div class="tab-pane fade" id="mvp-ex">
