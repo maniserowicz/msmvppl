@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "msmvp_pl", "src\msmvp_pl\msmvp_pl.csproj", "{6BA2A35C-D02C-434B-B99B-05B5E399CA7F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "msmvp_pl.Tests", "src\msmvp_pl.Tests\msmvp_pl.Tests.csproj", "{8A8F8D89-448E-40B3-A5BD-C1E946F6887F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{6BA2A35C-D02C-434B-B99B-05B5E399CA7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6BA2A35C-D02C-434B-B99B-05B5E399CA7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6BA2A35C-D02C-434B-B99B-05B5E399CA7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A8F8D89-448E-40B3-A5BD-C1E946F6887F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A8F8D89-448E-40B3-A5BD-C1E946F6887F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A8F8D89-448E-40B3-A5BD-C1E946F6887F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A8F8D89-448E-40B3-A5BD-C1E946F6887F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
