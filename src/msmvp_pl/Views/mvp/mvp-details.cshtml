@@ -13,6 +13,16 @@
 
 <p>@Html.Raw(@Model.Bio)</p>
 
+@if (
+    @Model.Contents.Count > 0 
+    &&
+    @*
+    this condition ensures that contents is really fetched
+    during testing there was a situation where MVP had no contents, but had 1 object in the collection (with null title and text)
+    *@
+    @Model.Contents.First().Title != null
+    )
+{
 <ul class="nav nav-tabs">
     @foreach (var content in @Model.Contents)
     {
@@ -25,18 +35,20 @@
     }
 </ul>
 
-<div class="tab-content">
-    @foreach (var content in @Model.Contents)
-    {
-        <div @if (content == Model.Contents.First())
-                {
-                    <text>class="tab-pane fade in active"</text>
-                }
-                else
-                {
-                    <text>class="tab-pane fade"</text>
-                } id="content-@content.Title.Replace(' ', '-')">
-            @Html.Raw(content.Text)
-        </div>
-    }
-</div>
+    <div class="tab-content">
+        @foreach (var content in @Model.Contents)
+        {
+            <div @if (content == Model.Contents.First())
+                 {
+                     <text>class="tab-pane fade in active"</text>
+                 }
+                 else
+                 {
+                     <text>class="tab-pane fade"</text>
+                 } id="content-@content.Title.Replace(' ', '-')">
+                @Html.Raw(content.Text)
+            </div>
+        }
+    </div>
+}
+    
