@@ -7,6 +7,7 @@ namespace msmvp_pl.Modules
         public HomeModule()
         {
             Get["/"] = _ => View["index"];
+            Get["/o-programie"] = _ => View["about"];
         }
     }
 }
