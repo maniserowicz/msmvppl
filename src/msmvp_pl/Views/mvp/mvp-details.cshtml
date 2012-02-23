@@ -12,3 +12,9 @@
 }
 
 <p>@Html.Raw(@Model.Bio)</p>
+
+@foreach (var content in @Model.Contents)
+{
+    <h3>@content.Title</h3>
+    <p>@Html.Raw(content.Text)</p>
+}

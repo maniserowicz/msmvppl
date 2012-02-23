@@ -19,7 +19,11 @@ namespace msmvp_pl.Modules
 
             Get["/{slug}"] = _ =>
                 {
-                    var mvp = dbProvider.GetDb().mvps.FindBySlug(_["slug"]);
+                    var mvp = dbProvider.GetDb()
+                        .mvps.FindAllBySlug(_["slug"])
+                            .WithContents()
+                            .FirstOrDefault()
+                        ;
 
                     if (mvp == null)
                     {
