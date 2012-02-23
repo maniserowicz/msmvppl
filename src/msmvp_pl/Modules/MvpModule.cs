@@ -17,7 +17,7 @@ namespace msmvp_pl.Modules
         public IEnumerable<dynamic> CurrentMvps()
         {
             return _mvps.Where(
-                x => ((IEnumerable<dynamic>) x.Nominations.ToList())
+                x => ((IEnumerable<dynamic>) x.Nominations)
                     .Any(y => y.EndDate == null)
             );
         }
@@ -35,7 +35,7 @@ namespace msmvp_pl.Modules
             Get["/"] = _ =>
                 {
                     var db = dbProvider.GetDb();
-                    var mvps = db.mvps.All();
+                    var mvps = db.mvps.WithNominations();
                     return View["mvp-list", new MvpListModel(mvps)];
                 };
         }

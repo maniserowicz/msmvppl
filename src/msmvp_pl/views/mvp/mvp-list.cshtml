@@ -22,30 +22,25 @@
 
 <h1>Polscy MVP</h1>
 
-    <ul class="nav nav-tabs">
-        <li class="active"><a href="#mvp-current" data-toggle="tab">Aktualni</a></li>
-        <li><a href="#mvp-ex" data-toggle="tab">Ex-MVP</a></li>
-    </ul>
-    <div class="tab-content">
-        <div class="tab-pane fade in active" id="mvp-current">
-            <ul class="nav nav-list">
-                @foreach (var mvp in @Model.CurrentMvps())
-                {
-                    <li><a href="#">@mvp.Name (@mvp.Nominations.Count())</a></li>
-                }
-            </ul>
-        </div>
-        <div class="tab-pane fade" id="mvp-ex">
-            <ul class="nav nav-list">
-                @foreach (var mvp in @Model.ExMvps())
-                {
-                    <li><a href="#">@mvp.Name @(((System.Collections.Generic.IEnumerable<dynamic>)mvp.Nominations.ToList()).OrderBy(x => x.EndDate).Last().EndDate</a></li>
-                }
-            </ul>
-        </div>
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#mvp-current" data-toggle="tab">Aktualni</a></li>
+    <li><a href="#mvp-ex" data-toggle="tab">Ex-MVP</a></li>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane fade in active" id="mvp-current">
+        <ul class="nav nav-list">
+            @foreach (var mvp in @Model.CurrentMvps())
+            {
+                <li><a href="#">@mvp.Name (@mvp.Nominations.Count)</a></li>
+            }
+        </ul>
     </div>
-
-
-<p>
-   
-</p>
+    <div class="tab-pane fade" id="mvp-ex">
+        <ul class="nav nav-list">
+            @foreach (var mvp in @Model.ExMvps())
+            {
+                <li><a href="#">@mvp.Name @(((System.Collections.Generic.IEnumerable<dynamic>)mvp.Nominations).Last().EndDate</a></li>
+            }
+        </ul>
+    </div>
+</div>
