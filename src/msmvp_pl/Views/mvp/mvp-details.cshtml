@@ -6,9 +6,9 @@
 
 <h1>@Model.Name</h1>
 
-<p>@Model.Name</p>
-<p>@Model.Bio</p>
 @if (Model.PhotoFile != null)
 {
     <p><img src="@Url.Content("~/assets/img/photos/" + @Model.PhotoFile)"/></p>
 }
+
+<p>@Html.Raw(@Model.Bio)</p>
