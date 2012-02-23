@@ -13,8 +13,30 @@
 
 <p>@Html.Raw(@Model.Bio)</p>
 
-@foreach (var content in @Model.Contents)
-{
-    <h3>@content.Title</h3>
-    <p>@Html.Raw(content.Text)</p>
-}
+<ul class="nav nav-tabs">
+    @foreach (var content in @Model.Contents)
+    {
+        <li @if (content == Model.Contents.First())
+            {
+                <text>class="active"</text>
+            }>
+            <a href="#content-@content.Title.Replace(' ', '-')" data-toggle="tab">@content.Title</a>
+        </li>
+    }
+</ul>
+
+<div class="tab-content">
+    @foreach (var content in @Model.Contents)
+    {
+        <div @if (content == Model.Contents.First())
+                {
+                    <text>class="tab-pane fade in active"</text>
+                }
+                else
+                {
+                    <text>class="tab-pane fade"</text>
+                } id="content-@content.Title.Replace(' ', '-')">
+            @Html.Raw(content.Text)
+        </div>
+    }
+</div>
