@@ -16,6 +16,18 @@ namespace msmvp_pl.Modules
 
                     return View["mvp-list", new MvpListModel(mvps)];
                 };
+
+            Get["/{slug}"] = _ =>
+                {
+                    var mvp = dbProvider.GetDb().mvps.FindBySlug(_["slug"]);
+
+                    if (mvp == null)
+                    {
+                        return HttpStatusCode.NotFound;
+                    }
+
+                    return View["mvp-details", mvp];
+                };
         }
 
         public class MvpListModel
