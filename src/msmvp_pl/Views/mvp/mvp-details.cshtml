@@ -2,9 +2,9 @@
     Layout = "_layout.cshtml";
 }
 
-@section Title{ @Model.Name > }
+@section Title{ @Model.FirstName @Model.LastName > }
 
-<h1>@Model.Name</h1>
+<h1>@Model.FirstName @Model.LastName</h1>
 
 @if (Model.PhotoFile != null)
 {

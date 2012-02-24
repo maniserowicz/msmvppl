@@ -30,7 +30,7 @@
         <ul class="nav nav-list">
             @foreach (var mvp in Model.Current)
             {
-                <li><a href="@Url.Content("~/mvp/" + @mvp.Slug)">@mvp.Name</a></li>
+                <li><a href="@Url.Content("~/mvp/" + @mvp.Slug)">@mvp.FirstName @mvp.LastName</a></li>
             }        
         </ul>
     </div>
@@ -38,7 +38,7 @@
         <ul class="nav nav-list">
             @foreach (var mvp in Model.Ex)
             {
-                <li><a href="@Url.Content("~/mvp/" + @mvp.Slug)">@mvp.Name</a></li>
+                <li><a href="@Url.Content("~/mvp/" + @mvp.Slug)">@mvp.FirstName @mvp.LastName</a></li>
             }        
         </ul>
     </div>
