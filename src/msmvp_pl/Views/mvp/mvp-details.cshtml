@@ -14,13 +14,38 @@
 <p>@Html.Raw(@Model.Bio)</p>
 
 @if (
-    @Model.Contents.Count > 0 
+    @Model.Links.Count > 0
+    &&
+    @*
+    this condition ensures that contents is really fetched
+    during testing there was a situation where MVP had no links, but had 1 object in the collection (with null title and text)
+    *@
+    @Model.Links.First().Value != null
+    )
+{
+    <fieldset>
+        <legend>Linki</legend>
+        @foreach(var link in @Model.Links)
+        {
+            <p>
+            @if (@link.Name != null)
+            {
+                @link.Name@::
+            }
+            @Html.Raw(link.Value)
+            </p>
+        }
+    </fieldset>
+}
+
+@if (
+    @Model.Contents.Count > 0
     &&
     @*
     this condition ensures that contents is really fetched
     during testing there was a situation where MVP had no contents, but had 1 object in the collection (with null title and text)
     *@
-    @Model.Contents.First().Title != null
+ @Model.Contents.First().Title != null
     )
 {
 <ul class="nav nav-tabs">

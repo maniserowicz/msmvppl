@@ -12,6 +12,7 @@ namespace msmvp_pl.Modules.Mvp
                     var mvp = dbProvider.GetDb()
                         .mvps.FindAllBySlug(p["slug"])
                         .WithContents()
+                        .WithLinks()
                         .FirstOrDefault()
                         ;
 
