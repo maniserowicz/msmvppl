@@ -98,8 +98,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\DbProvider.cs" />
-    <Compile Include="Modules\HomeModule.cs" />
-    <Compile Include="Modules\MvpModule.cs" />
+    <Compile Include="Modules\Home\AboutModule.cs" />
+    <Compile Include="Modules\Home\IndexModule.cs" />
+    <Compile Include="Modules\Home\_HomeModuleBase.cs" />
+    <Compile Include="Modules\Mvp\MvpDetailsModule.cs" />
+    <Compile Include="Modules\Mvp\MvpModule.cs" />
+    <Compile Include="Modules\Mvp\_MvpModuleBase.cs" />
     <Compile Include="MvpBootstraper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -109,7 +113,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\index.cshtml" />
+    <Content Include="Views\home\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\_layout.cshtml" />
@@ -121,8 +125,9 @@
     <Content Include="Views\mvp\mvp-details.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\about.cshtml" />
+    <Content Include="Views\home\about.cshtml" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>

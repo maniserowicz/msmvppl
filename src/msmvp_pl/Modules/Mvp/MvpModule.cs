@@ -1,36 +1,18 @@
 using System.Collections.Generic;
-using Nancy;
 using msmvp_pl.Core;
 using System.Linq;
 
-namespace msmvp_pl.Modules
+namespace msmvp_pl.Modules.Mvp
 {
-    public class MvpModule : NancyModule
+    public class MvpListModule : MvpModuleBase
     {
-        public MvpModule(IDbProvider dbProvider)
-            : base("/mvp")
+        public MvpListModule(IDbProvider dbProvider)
         {
             Get["/"] = _ =>
                 {
                     var mvps = dbProvider.GetDb().mvps.WithNominations();
 
                     return View["mvp-list", new MvpListModel(mvps)];
-                };
-
-            Get["/{slug}"] = _ =>
-                {
-                    var mvp = dbProvider.GetDb()
-                        .mvps.FindAllBySlug(_["slug"])
-                            .WithContents()
-                            .FirstOrDefault()
-                        ;
-
-                    if (mvp == null)
-                    {
-                        return HttpStatusCode.NotFound;
-                    }
-
-                    return View["mvp-details", mvp];
                 };
         }
 
