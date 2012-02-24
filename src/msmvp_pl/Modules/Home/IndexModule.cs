@@ -5,6 +5,8 @@ namespace msmvp_pl.Modules.Home
         public IndexModule()
         {
             Get["/"] = _ => View["index"];
+
+            Get["/jakas-inna-statyczna-strona"] = _ => View["some-other-static-page"];
         }
     }
 }
