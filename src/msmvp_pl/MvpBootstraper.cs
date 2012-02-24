@@ -4,17 +4,18 @@ using System.Reflection;
 using Nancy;
 using Nancy.Conventions;
 using System.Linq;
+using Nancy.ViewEngines;
 
 namespace msmvp_pl
 {
     public class MvpBootstraper : DefaultNancyBootstrapper
     {
-        private List<Type> _allModuleTypes;
+        private static readonly List<Type> _allModuleTypes;
 
-        public MvpBootstraper()
+        static MvpBootstraper()
         {
             _allModuleTypes = Assembly.GetExecutingAssembly().GetTypes()
-                .Where(x => typeof(NancyModule).IsAssignableFrom(x))
+                .Where(x => typeof (NancyModule).IsAssignableFrom(x))
                 .ToList();
         }
 
@@ -26,36 +27,38 @@ namespace msmvp_pl
                 StaticContentConventionBuilder.AddDirectory("assets")
             );
 
-            // locate view by it's base module's folder
-            conventions.ViewLocationConventions.Insert(0, (viewName, model, viewLocationContext) =>
+            conventions.ViewLocationConventions.Insert(0, CustomViewLocationConvention);
+        }
+
+        // locate view by it's base module's folder
+        public static Func<string, dynamic, ViewLocationContext, string> CustomViewLocationConvention = (viewName, model, viewLocationContext) =>
+        {
+            Func<string, string> trimModuleNameEnd = name =>
                 {
-                    Func<string, string> trimModuleNameEnd = name =>
-                        {
-                            if (name.EndsWith("Module"))
-                            {
-                                return name.Substring(0, name.Length - "Module".Length);
-                            }
-                            else if (name.EndsWith("ModuleBase"))
-                            {
-                                return name.Substring(0, name.Length - "ModuleBase".Length);
-                            }
-
-                            return name;
-                        };
-
-                    string fullModuleName = viewLocationContext.ModuleName + "Module";
-
-                    var moduleType = _allModuleTypes.SingleOrDefault(x => x.Name == fullModuleName);
-
-                    if (moduleType == null)
+                    if (name.EndsWith("Module"))
                     {
-                        return null;
+                        return name.Substring(0, name.Length - "Module".Length);
+                    }
+                    if (name.EndsWith("ModuleBase"))
+                    {
+                        return name.Substring(0, name.Length - "ModuleBase".Length);
                     }
 
-                    string baseModuleName = trimModuleNameEnd(moduleType.BaseType.Name);
+                    return name;
+                };
 
-                    return string.Concat("views/", baseModuleName, "/", viewName);
-                });
-        }
+            string fullModuleName = viewLocationContext.ModuleName + "Module";
+
+            var moduleType = _allModuleTypes.SingleOrDefault(x => x.Name == fullModuleName);
+
+            if (moduleType == null)
+            {
+                return null;
+            }
+
+            string baseModuleName = trimModuleNameEnd(moduleType.BaseType.Name);
+
+            return string.Concat("views/", baseModuleName, "/", viewName);
+        };
     }
 }
