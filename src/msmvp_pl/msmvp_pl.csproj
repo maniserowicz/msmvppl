@@ -98,6 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\DbProvider.cs" />
+    <Compile Include="Core\ObjectExtensions.cs" />
     <Compile Include="Modules\Home\AboutModule.cs" />
     <Compile Include="Modules\Home\HistoryModule.cs" />
     <Compile Include="Modules\Home\IndexModule.cs" />
