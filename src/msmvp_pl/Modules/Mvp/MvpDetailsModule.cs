@@ -13,6 +13,7 @@ namespace msmvp_pl.Modules.Mvp
                         .mvps.FindAllBySlug(p["slug"])
                         .WithContents()
                         .WithLinks()
+                        .WithNominations()
                         .FirstOrDefault()
                         ;
 
