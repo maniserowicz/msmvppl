@@ -2,5 +2,43 @@
     Layout = "_layout.cshtml";
 }
 
+@section Title{ Historia programu > }
+
 <h1>Historia nominacji MVP w Polsce</h1>
-<p>Lista nominacji z linkami do nominowanych</p>
+
+<p>Chronoligiczna lista nominacji:</p>
+
+<div id="nomination-years" class="accordion">
+@foreach (var year in @Model.AllYears)
+{
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a href="#collapse-@year" data-toggle="collapse" class="accordion-toggle">
+                @year
+            </a>
+        </div>
+        <div class="accordion-body collapse @if(year == @Model.AllYears[0]){ <text>in</text> }" id="collapse-@year">
+            <div class="accordion-inner">
+                @foreach (var month in @Model.MonthsByYear(year))
+                {
+                    <ul class="nav nav-list">
+                        <li class="nav-header">@month.Name</li>
+                        <li>Do programu dołączyli</li>
+                        @foreach (var nomination in @Model.StartedNominations(year, month.Number))
+                        {
+                            <li><a href="@Url.Content("~/lista-mvp/" + @nomination.Mvp.Slug)">@nomination.Mvp.FirstName
+                                @nomination.Mvp.LastName (@nomination.Category)</a></li>
+                        }
+                        <li>Z programu odeszli</li>
+                        @foreach (var nomination in @Model.FinishedNominations(year, month.Number))
+                        {
+                            <li><a href="@Url.Content("~/lista-mvp/" + @nomination.Mvp.Slug)">@nomination.Mvp.FirstName
+                                @nomination.Mvp.LastName (@nomination.Category)</a></li>
+                        }
+                    </ul>       
+                }
+            </div>
+        </div>
+    </div>
+}
+</div>
