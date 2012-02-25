@@ -59,6 +59,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="_Partials\Mvp_Display.cs" />
     <Content Include="App_Data\msmvp_data.sdf" />
     <Content Include="Default.aspx" />
     <Compile Include="Default.aspx.cs">
