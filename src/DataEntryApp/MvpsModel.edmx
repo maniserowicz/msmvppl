@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="msmvp_dataModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="msmvp_dataModelStoreContainer">
+          <EntitySet Name="contents" EntityType="msmvp_dataModel.Store.contents" store:Type="Tables" />
+          <EntitySet Name="links" EntityType="msmvp_dataModel.Store.links" store:Type="Tables" />
+          <EntitySet Name="mvps" EntityType="msmvp_dataModel.Store.mvps" store:Type="Tables" />
+          <EntitySet Name="nominations" EntityType="msmvp_dataModel.Store.nominations" store:Type="Tables" />
+          <AssociationSet Name="contents_mvps" Association="msmvp_dataModel.Store.contents_mvps">
+            <End Role="mvps" EntitySet="mvps" />
+            <End Role="contents" EntitySet="contents" />
+          </AssociationSet>
+          <AssociationSet Name="links_mvps" Association="msmvp_dataModel.Store.links_mvps">
+            <End Role="mvps" EntitySet="mvps" />
+            <End Role="links" EntitySet="links" />
+          </AssociationSet>
+          <AssociationSet Name="nominations_mvps" Association="msmvp_dataModel.Store.nominations_mvps">
+            <End Role="mvps" EntitySet="mvps" />
+            <End Role="nominations" EntitySet="nominations" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="contents">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="250" />
+          <Property Name="Text" Type="ntext" Nullable="false" />
+          <Property Name="MvpId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="links">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="Value" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="MvpId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mvps">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Slug" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Bio" Type="ntext" />
+          <Property Name="PhotoFile" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="nominations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MvpId" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="Category" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <Association Name="contents_mvps">
+          <End Role="mvps" Type="msmvp_dataModel.Store.mvps" Multiplicity="1" />
+          <End Role="contents" Type="msmvp_dataModel.Store.contents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mvps">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="contents">
+              <PropertyRef Name="MvpId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="links_mvps">
+          <End Role="mvps" Type="msmvp_dataModel.Store.mvps" Multiplicity="1" />
+          <End Role="links" Type="msmvp_dataModel.Store.links" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mvps">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="links">
+              <PropertyRef Name="MvpId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="nominations_mvps">
+          <End Role="mvps" Type="msmvp_dataModel.Store.mvps" Multiplicity="1" />
+          <End Role="nominations" Type="msmvp_dataModel.Store.nominations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mvps">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="nominations">
+              <PropertyRef Name="MvpId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="msmvp_dataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="msmvp_dataEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="contents" EntityType="msmvp_dataModel.contents" />
+          <EntitySet Name="links" EntityType="msmvp_dataModel.links" />
+          <EntitySet Name="mvps" EntityType="msmvp_dataModel.mvps" />
+          <EntitySet Name="nominations" EntityType="msmvp_dataModel.nominations" />
+          <AssociationSet Name="contents_mvps" Association="msmvp_dataModel.contents_mvps">
+            <End Role="mvps" EntitySet="mvps" />
+            <End Role="contents" EntitySet="contents" />
+          </AssociationSet>
+          <AssociationSet Name="links_mvps" Association="msmvp_dataModel.links_mvps">
+            <End Role="mvps" EntitySet="mvps" />
+            <End Role="links" EntitySet="links" />
+          </AssociationSet>
+          <AssociationSet Name="nominations_mvps" Association="msmvp_dataModel.nominations_mvps">
+            <End Role="mvps" EntitySet="mvps" />
+            <End Role="nominations" EntitySet="nominations" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="contents">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="MvpId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="mvps" Relationship="msmvp_dataModel.contents_mvps" FromRole="contents" ToRole="mvps" />
+        </EntityType>
+        <EntityType Name="links">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="MvpId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="mvps" Relationship="msmvp_dataModel.links_mvps" FromRole="links" ToRole="mvps" />
+        </EntityType>
+        <EntityType Name="mvps">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Slug" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Bio" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="PhotoFile" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="contents" Relationship="msmvp_dataModel.contents_mvps" FromRole="mvps" ToRole="contents" />
+          <NavigationProperty Name="links" Relationship="msmvp_dataModel.links_mvps" FromRole="mvps" ToRole="links" />
+          <NavigationProperty Name="nominations" Relationship="msmvp_dataModel.nominations_mvps" FromRole="mvps" ToRole="nominations" />
+        </EntityType>
+        <EntityType Name="nominations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MvpId" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" />
+          <Property Name="EndDate" Type="DateTime" />
+          <Property Name="Category" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="mvps" Relationship="msmvp_dataModel.nominations_mvps" FromRole="nominations" ToRole="mvps" />
+        </EntityType>
+        <Association Name="contents_mvps">
+          <End Role="mvps" Type="msmvp_dataModel.mvps" Multiplicity="1" />
+          <End Role="contents" Type="msmvp_dataModel.contents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mvps">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="contents">
+              <PropertyRef Name="MvpId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="links_mvps">
+          <End Role="mvps" Type="msmvp_dataModel.mvps" Multiplicity="1" />
+          <End Role="links" Type="msmvp_dataModel.links" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mvps">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="links">
+              <PropertyRef Name="MvpId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="nominations_mvps">
+          <End Role="mvps" Type="msmvp_dataModel.mvps" Multiplicity="1" />
+          <End Role="nominations" Type="msmvp_dataModel.nominations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mvps">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="nominations">
+              <PropertyRef Name="MvpId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="msmvp_dataModelStoreContainer" CdmEntityContainer="msmvp_dataEntities">
+          <EntitySetMapping Name="contents"><EntityTypeMapping TypeName="msmvp_dataModel.contents"><MappingFragment StoreEntitySet="contents">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="Text" ColumnName="Text" />
+            <ScalarProperty Name="MvpId" ColumnName="MvpId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="links"><EntityTypeMapping TypeName="msmvp_dataModel.links"><MappingFragment StoreEntitySet="links">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Value" ColumnName="Value" />
+            <ScalarProperty Name="MvpId" ColumnName="MvpId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="mvps"><EntityTypeMapping TypeName="msmvp_dataModel.mvps"><MappingFragment StoreEntitySet="mvps">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+            <ScalarProperty Name="LastName" ColumnName="LastName" />
+            <ScalarProperty Name="Slug" ColumnName="Slug" />
+            <ScalarProperty Name="Bio" ColumnName="Bio" />
+            <ScalarProperty Name="PhotoFile" ColumnName="PhotoFile" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="nominations"><EntityTypeMapping TypeName="msmvp_dataModel.nominations"><MappingFragment StoreEntitySet="nominations">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="MvpId" ColumnName="MvpId" />
+            <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+            <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+            <ScalarProperty Name="Category" ColumnName="Category" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="MvpsModel">
+        <EntityTypeShape EntityType="msmvp_dataModel.contents" Width="1.5" PointX="3" PointY="1.25" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="msmvp_dataModel.links" Width="1.5" PointX="3" PointY="3.875" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="msmvp_dataModel.mvps" Width="1.5" PointX="0.75" PointY="3.625" Height="2.7494921874999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="msmvp_dataModel.nominations" Width="1.5" PointX="3" PointY="6.625" Height="2.1725878906249996" IsExpanded="true" />
+        <AssociationConnector Association="msmvp_dataModel.contents_mvps" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="3.625" />
+          <ConnectorPoint PointX="1.5" PointY="2.2401432291666667" />
+          <ConnectorPoint PointX="3" PointY="2.2401432291666667" />
+        </AssociationConnector>
+        <AssociationConnector Association="msmvp_dataModel.links_mvps" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="4.8651432291666667" />
+          <ConnectorPoint PointX="3" PointY="4.8651432291666667" />
+        </AssociationConnector>
+        <AssociationConnector Association="msmvp_dataModel.nominations_mvps" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="6.3744921875" />
+          <ConnectorPoint PointX="1.5" PointY="7.7112939453125" />
+          <ConnectorPoint PointX="3" PointY="7.7112939453125" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

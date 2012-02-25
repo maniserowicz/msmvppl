@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "msmvp_pl", "src\msmvp_pl\ms
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "msmvp_pl.Tests", "src\msmvp_pl.Tests\msmvp_pl.Tests.csproj", "{8A8F8D89-448E-40B3-A5BD-C1E946F6887F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataEntryApp", "src\DataEntryApp\DataEntryApp.csproj", "{A0F9758D-195D-4DFF-B174-D181220B0918}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,14 @@ Global
 		{8A8F8D89-448E-40B3-A5BD-C1E946F6887F}.MonoRelease|Any CPU.Build.0 = Release|Any CPU
 		{8A8F8D89-448E-40B3-A5BD-C1E946F6887F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A8F8D89-448E-40B3-A5BD-C1E946F6887F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0F9758D-195D-4DFF-B174-D181220B0918}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0F9758D-195D-4DFF-B174-D181220B0918}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0F9758D-195D-4DFF-B174-D181220B0918}.MonoDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0F9758D-195D-4DFF-B174-D181220B0918}.MonoDebug|Any CPU.Build.0 = Debug|Any CPU
+		{A0F9758D-195D-4DFF-B174-D181220B0918}.MonoRelease|Any CPU.ActiveCfg = Release|Any CPU
+		{A0F9758D-195D-4DFF-B174-D181220B0918}.MonoRelease|Any CPU.Build.0 = Release|Any CPU
+		{A0F9758D-195D-4DFF-B174-D181220B0918}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0F9758D-195D-4DFF-B174-D181220B0918}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
