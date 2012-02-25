@@ -104,7 +104,7 @@
     <Compile Include="Modules\Home\IndexModule.cs" />
     <Compile Include="Modules\Home\_HomeModuleBase.cs" />
     <Compile Include="Modules\Mvp\MvpDetailsModule.cs" />
-    <Compile Include="Modules\Mvp\MvpModule.cs" />
+    <Compile Include="Modules\Mvp\MvpListModule.cs" />
     <Compile Include="Modules\Mvp\_MvpModuleBase.cs" />
     <Compile Include="MvpBootstraper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

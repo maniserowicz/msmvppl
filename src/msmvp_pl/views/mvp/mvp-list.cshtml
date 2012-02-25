@@ -3,21 +3,6 @@
 }
 
 @section Title{ Lista polskich MVP > }
-@section LeftSidebar{
-    <div class="well sidebar-nav">
-        <ul class="nav nav-list">
-            <li class="nav-header">C#</li>
-            <li class="active"><a href="#">C# MVP 1</a></li>
-            <li><a href="#">C# MVP 2</a></li>
-            <li class="nav-header">SQL Server</li>
-            <li><a href="#">SQL Server MVP 1</a></li>
-            <li><a href="#">SQL Server MVP 2</a></li>
-            <li class="nav-header">(...)</li>
-            <li><a href="#">...</a></li>  
-            <li><a href="#">...</a></li>
-        </ul>
-    </div>
-}
 
 <h1>Polscy MVP</h1>
 
@@ -28,17 +13,25 @@
 <div class="tab-content">
     <div class="tab-pane fade in active" id="mvp-current">
         <ul class="nav nav-list">
-            @foreach (var mvp in Model.Current)
+            @foreach (var group in @Model.Current)
             {
-                <li><a href="@Url.Content("~/lista-mvp/" + @mvp.Slug)">@mvp.FirstName @mvp.LastName</a></li>
+                <li class="nav-header">@group.Category</li>
+                @foreach (var mvp in @group.Mvps)
+                {
+                    <li><a href="@Url.Content("~/lista-mvp/" + @mvp.Slug)">@mvp.FirstName @mvp.LastName</a></li>
+                }
             }        
         </ul>
     </div>
     <div class="tab-pane fade" id="mvp-ex">
         <ul class="nav nav-list">
-            @foreach (var mvp in Model.Ex)
+            @foreach (var group in @Model.Ex)
             {
-                <li><a href="@Url.Content("~/lista-mvp/" + @mvp.Slug)">@mvp.FirstName @mvp.LastName</a></li>
+                <li class="nav-header">@group.Category</li>
+                @foreach (var mvp in @group.Mvps)
+                {
+                    <li><a href="@Url.Content("~/lista-mvp/" + @mvp.Slug)">@mvp.FirstName @mvp.LastName</a></li>
+                }
             }        
         </ul>
     </div>
