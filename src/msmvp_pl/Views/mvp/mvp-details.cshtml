@@ -1,4 +1,5 @@
-﻿@{
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<dynamic>
+@{
     Layout = "_layout.cshtml";
 }
 
@@ -13,41 +14,33 @@
 
 <p>@Html.Raw(@Model.Bio)</p>
 
-@if (
-    @Model.Nominations.Count > 0
-    &&
-    @*
-    this condition ensures that contents is really fetched
-    during testing there was a situation where MVP had no Nominations, but had 1 object in the collection (with null start date)
-    *@
- @Model.Nominations.First().StartDate != null
-    )
+@*
+this condition ensures that contents is really fetched
+during testing there was a situation where MVP had no Nominations, but had 1 object in the collection (with null start date)
+*@
+@if (@Model.Nominations.Count > 0 && @Model.Nominations.First().StartDate != null)
 {
-<fieldset>
-    <legend>Nominacje</legend>
-    <ul class="nav nav-list">
-        @foreach (var nomination in @Model.Nominations)
-        {
-        <li>
-            @nomination.StartDate.ToString("yyyy-MM")
-            -
-            @(nomination.EndDate == null ? "?" : nomination.EndDate.ToString("yyyy-MM"))
-            (@nomination.Category)
-        </li>
-        }
-    </ul>
-</fieldset>
+    <fieldset>
+        <legend>Nominacje</legend>
+        <ul class="nav nav-list">
+            @foreach (var nomination in @Model.Nominations)
+            {
+            <li>
+                @nomination.StartDate.ToString("yyyy-MM")
+                -
+                @(nomination.EndDate == null ? "?" : nomination.EndDate.ToString("yyyy-MM"))
+                (@nomination.Category)
+            </li>
+            }
+        </ul>
+    </fieldset>
 }
 
-@if (
-    @Model.Links.Count > 0
-    &&
-    @*
-    this condition ensures that contents is really fetched
-    during testing there was a situation where MVP had no links, but had 1 object in the collection (with null title and text)
-    *@
- @Model.Links.First().Value != null
-    )
+@*
+this condition ensures that contents is really fetched
+during testing there was a situation where MVP had no links, but had 1 object in the collection (with null title and text)
+*@
+@if (@Model.Links.Count > 0 && @Model.Links.First().Value != null)
 {
     <fieldset>
         <legend>Linki</legend>
@@ -64,27 +57,24 @@
     </fieldset>
 }
 
-@if (
-    @Model.Contents.Count > 0
-    &&
-    @*
-    this condition ensures that contents is really fetched
-    during testing there was a situation where MVP had no contents, but had 1 object in the collection (with null title and text)
-    *@
- @Model.Contents.First().Title != null
-    )
+@*
+this condition ensures that contents is really fetched
+during testing there was a situation where MVP had no contents, but had 1 object in the collection (with null title and text)
+*@
+
+@if (@Model.Contents.Count > 0 && @Model.Contents.First().Title != null)
 {
-<ul class="nav nav-tabs">
-    @foreach (var content in @Model.Contents)
-    {
-        <li @if (content == Model.Contents.First())
-            {
-                <text>class="active"</text>
-            }>
-            <a href="#content-@content.Title.Replace(' ', '-')" data-toggle="tab">@content.Title</a>
-        </li>
-    }
-</ul>
+    <ul class="nav nav-tabs">
+        @foreach (var content in @Model.Contents)
+        {
+            <li @if (content == Model.Contents.First())
+                {
+                    <text>class="active"</text>
+                }>
+                <a href="#content-@content.Title.Replace(' ', '-')" data-toggle="tab">@content.Title</a>
+            </li>
+        }
+    </ul>
 
     <div class="tab-content">
         @foreach (var content in @Model.Contents)
@@ -102,4 +92,3 @@
         }
     </div>
 }
-    
