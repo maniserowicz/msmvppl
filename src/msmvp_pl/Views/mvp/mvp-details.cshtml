@@ -3,27 +3,27 @@
     Layout = "_layout.cshtml";
 }
 
-@section Title{ @Model.FirstName @Model.LastName > }
+@section Title{ @Model.Mvp.FirstName @Model.Mvp.LastName > }
 
-<h1>@Model.FirstName @Model.LastName</h1>
+<h1>@Model.Mvp.FirstName @Model.Mvp.LastName</h1>
 
-@if (Model.PhotoFile != null)
+@if (Model.Mvp.PhotoFile != null)
 {
-    <p><img src="@Url.Content("~/assets/img/photos/" + @Model.PhotoFile)"/></p>
+    <p><img src="@Url.Content("~/assets/img/photos/" + @Model.Mvp.PhotoFile)"/></p>
 }
 
-<p>@Html.Raw(@Model.Bio)</p>
+<p>@Html.Raw(@Model.Mvp.Bio)</p>
 
 @*
 this condition ensures that contents is really fetched
 during testing there was a situation where MVP had no Nominations, but had 1 object in the collection (with null start date)
 *@
-@if (@Model.Nominations.Count > 0 && @Model.Nominations.First().StartDate != null)
+@if (@Model.Mvp.Nominations.Count > 0 && @Model.Mvp.Nominations.First().StartDate != null)
 {
     <fieldset>
         <legend>Nominacje</legend>
         <ul class="nav nav-list">
-            @foreach (var nomination in @Model.Nominations)
+            @foreach (var nomination in @Model.Mvp.Nominations)
             {
             <li>
                 @nomination.StartDate.ToString("yyyy-MM")
@@ -40,11 +40,11 @@ during testing there was a situation where MVP had no Nominations, but had 1 obj
 this condition ensures that contents is really fetched
 during testing there was a situation where MVP had no links, but had 1 object in the collection (with null title and text)
 *@
-@if (@Model.Links.Count > 0 && @Model.Links.First().Value != null)
+@if (@Model.Mvp.Links.Count > 0 && @Model.Mvp.Links.First().Value != null)
 {
     <fieldset>
         <legend>Linki</legend>
-        @foreach (var link in @Model.Links)
+        @foreach (var link in @Model.Mvp.Links)
         {
             <p>
             @if (@link.Name != null)
@@ -62,12 +62,12 @@ this condition ensures that contents is really fetched
 during testing there was a situation where MVP had no contents, but had 1 object in the collection (with null title and text)
 *@
 
-@if (@Model.Contents.Count > 0 && @Model.Contents.First().Title != null)
+@if (@Model.Mvp.Contents.Count > 0 && @Model.Mvp.Contents.First().Title != null)
 {
     <ul class="nav nav-tabs">
-        @foreach (var content in @Model.Contents)
+        @foreach (var content in @Model.Mvp.Contents)
         {
-            <li @if (content == Model.Contents.First())
+            <li @if (content == Model.Mvp.Contents.First())
                 {
                     <text>class="active"</text>
                 }>
@@ -77,9 +77,9 @@ during testing there was a situation where MVP had no contents, but had 1 object
     </ul>
 
     <div class="tab-content">
-        @foreach (var content in @Model.Contents)
+        @foreach (var content in @Model.Mvp.Contents)
         {
-            <div @if (content == Model.Contents.First())
+            <div @if (content == Model.Mvp.Contents.First())
                  {
                      <text>class="tab-pane fade in active"</text>
                  }
@@ -91,4 +91,44 @@ during testing there was a situation where MVP had no contents, but had 1 object
             </div>
         }
     </div>
+}
+
+@section twitter
+{
+    <p>
+        HasTwitter: @Model.HasTwitter
+        <br />
+        Twitter: @Model.Twitter
+    </p>
+
+    @if(Model.HasTwitter)
+    {
+        <script>
+            new TWTR.Widget({
+                version: 2,
+                type: 'profile',
+                rpp: 4,
+                interval: 30000,
+                width: 250,
+                height: 300,
+                theme: {
+                    shell: {
+                        background: '#333333',
+                        color: '#ffffff'
+                    },
+                    tweets: {
+                        background: '#000000',
+                        color: '#ffffff',
+                        links: '#4aed05'
+                    }
+                },
+                features: {
+                    scrollbar: true,
+                    loop: false,
+                    live: true,
+                    behavior: 'all'
+                }
+            }).render().setUser('@Model.Twitter').start();
+        </script>
+    }
 }
