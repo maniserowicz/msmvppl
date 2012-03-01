@@ -113,6 +113,8 @@
     <Compile Include="Modules\Mvp\MvpDetailsModule.cs" />
     <Compile Include="Modules\Mvp\MvpListModule.cs" />
     <Compile Include="Modules\Mvp\_MvpModuleBase.cs" />
+    <Compile Include="Modules\Twitter\TwitterModule.cs" />
+    <Compile Include="Modules\Twitter\_TwitterModuleBase.cs" />
     <Compile Include="MvpBootstraper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

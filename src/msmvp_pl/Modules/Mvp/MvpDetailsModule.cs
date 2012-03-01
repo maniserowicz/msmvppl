@@ -25,53 +25,8 @@ namespace msmvp_pl.Modules.Mvp
                         return HttpStatusCode.NotFound;
                     }
 
-                    var model = new MvpDetailsViewModel(mvp);
-
-                    return View["mvp-details", model];
+                    return View["mvp-details", mvp];
                 };
-        }
-
-        public class MvpDetailsViewModel
-        {
-            private readonly dynamic _mvp;
-
-            public MvpDetailsViewModel(dynamic mvp)
-            {
-                _mvp = mvp;
-
-                SetTwitterData();
-            }
-
-            private void SetTwitterData()
-            {
-                IEnumerable<dynamic> links = _mvp.Links;
-
-                var twitter = links.Where(x => x.Value.Contains("twitter")).FirstOrDefault();
-
-                HasTwitter = false;
-
-                if(twitter != null)
-                {
-
-                    HtmlDocument doc = new HtmlDocument();
-                    doc.LoadHtml(twitter.Value.ToString());
-                    var link = doc.DocumentNode.SelectSingleNode("//a");
-                    if(link != null)
-                    {
-                        HasTwitter = true;
-                        var twitterLink = link.Attributes["href"].Value;
-                        Twitter = twitterLink.Substring(twitterLink.LastIndexOf('/') + 1);
-                    }
-                }
-            }
-
-            public dynamic Mvp
-            {
-                get { return _mvp; }
-            }
-
-            public bool HasTwitter { get; set; }
-            public string Twitter { get; set; }
         }
     }
 }

@@ -37,39 +37,3 @@
         </ul>
     </div>
 </div>
-
-@section twitter
-{
-    @if(Model.HasTwitter)
-    {
-                <script>
-                    new TWTR.Widget({
-                        version: 2,
-                        type: 'search',
-                        search: '@Model.TwitterSearch',
-                        interval: 30000,
-                        title: 'Polscy MVP',
-                        subject: 'Co ćwierka w trawie?',
-                        width: 250,
-                        height: 300,
-                        theme: {
-                            shell: {
-                                background: '#8ec1da',
-                                color: '#ffffff'
-                            },
-                            tweets: {
-                                background: '#ffffff',
-                                color: '#444444',
-                                links: '#1985b5'
-                            }
-                        },
-                        features: {
-                            scrollbar: false,
-                            loop: true,
-                            live: true,
-                            behavior: 'default'
-                        }
-                    }).render().start();
-        </script>
-    }
-}

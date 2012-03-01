@@ -17,10 +17,7 @@
         </style>
 
         <link href="@Url.Content("~/assets/css/bootstrap-responsive.css")" rel="stylesheet">
-        @*
-        this script needs to be in the head, otherwise twitter widget will not work.
-        *@
-        <script charset="utf-8" src="//widgets.twimg.com/j/2/widget.js"></script>
+        
     </head>
     <body>
         
@@ -54,7 +51,13 @@
                     @*
                         we do not want to have twitter in well style.
                     *@
-                    @RenderSection("twitter", false)
+                    
+                    @if (IsSectionDefined("twitter")) {
+                        RenderSection("twitter");
+                    }
+                    else { 
+                        <div id="twitter-list"></div>
+                    }
 
                     <div class="well sidebar-nav">
                             
@@ -79,7 +82,58 @@
         </div>
         
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-        
+        <script charset="utf-8" src="//widgets.twimg.com/j/2/widget.js"></script>
         <script src="@Url.Content("~/assets/js/bootstrap.js")"></script>
+        <script type="text/javascript">
+
+            $(function () {
+
+                var elem = $('#twitter-list'), widget;
+
+                if (elem.length > 0) {
+
+                    $.getJSON('@Url.Content("~/twitter")', function (data) {
+                        if (data.Twitter) {
+                            widget = new TWTR.Widget({
+                                id: 'twitter-list',
+                                version: 2,
+                                type: 'search',
+                                search: data.Twitter,
+                                interval: 30000,
+                                title: 'Polscy MVP',
+                                subject: 'Co ćwierka w trawie?',
+                                width: 250,
+                                height: 300,
+                                theme: {
+                                    shell: {
+                                        background: '#8ec1da',
+                                        color: '#ffffff'
+                                    },
+                                    tweets: {
+                                        background: '#ffffff',
+                                        color: '#444444',
+                                        links: '#1985b5'
+                                    }
+                                },
+                                features: {
+                                    scrollbar: false,
+                                    loop: true,
+                                    live: true,
+                                    behavior: 'default'
+                                }
+                            });
+
+                            widget.render();
+                            widget.start();
+                        }
+                    });
+                }
+
+            });
+
+            
+        </script>
+        
+        @RenderSection("scripts", false)
     </body>
 </html>
