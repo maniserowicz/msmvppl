@@ -31,7 +31,7 @@
             </div>
 
             <asp:GridView ID="GridView1" runat="server" DataSourceID="GridDataSource" EnablePersistedSelection="true"
-                AllowPaging="True" AllowSorting="True" CssClass="DDGridView"
+                AllowPaging="True" AllowSorting="True" CssClass="DDGridView" PageSize="1000"
                 RowStyle-CssClass="td" HeaderStyle-CssClass="th" CellPadding="6">
                 <Columns>
                     <asp:TemplateField>

@@ -18,6 +18,7 @@
     <span class="DDFloatRight">
         <asp:Label ID="LabelRows" runat="server" Text="Results per page:" AssociatedControlID="DropDownListPageSize" />
         <asp:DropDownList ID="DropDownListPageSize" runat="server" AutoPostBack="true" CssClass="DDControl" onselectedindexchanged="DropDownListPageSize_SelectedIndexChanged">
+            <asp:ListItem Value="1000" />
             <asp:ListItem Value="5" />
             <asp:ListItem Value="10" />
             <asp:ListItem Value="15" />
