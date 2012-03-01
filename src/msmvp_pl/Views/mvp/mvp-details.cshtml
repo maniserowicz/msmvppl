@@ -71,7 +71,7 @@ during testing there was a situation where MVP had no contents, but had 1 object
                 {
                     <text>class="active"</text>
                 }>
-                <a href="#content-@content.Title.Replace(' ', '-')" data-toggle="tab">@content.Title</a>
+                <a href="#content-@Model.StringSlug(@content.Title)" data-toggle="tab">@content.Title</a>
             </li>
         }
     </ul>
@@ -86,7 +86,7 @@ during testing there was a situation where MVP had no contents, but had 1 object
                  else
                  {
                      <text>class="tab-pane fade"</text>
-                 } id="content-@content.Title.Replace(' ', '-')">
+                 } id="content-@Model.StringSlug(@content.Title)">
                 @Html.Raw(content.Text)
             </div>
         }
