@@ -1,0 +1,3 @@
+[submodule "src/RssMixxxer"]
+	path = src/RssMixxxer
+	url = git://github.com/maniserowicz/RssMixxxer.git

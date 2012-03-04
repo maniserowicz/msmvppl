@@ -85,12 +85,15 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-    <None Include="web.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\msmvp_pl\msmvp_pl.csproj">
       <Project>{6BA2A35C-D02C-434B-B99B-05B5E399CA7F}</Project>
       <Name>msmvp_pl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RssMixxxer\src\RssMixxxer\RssMixxxer.csproj">
+      <Project>{29FCD44D-8D9E-4737-89BD-B4FB8938DF6F}</Project>
+      <Name>RssMixxxer %28RssMixxxer\RssMixxxer%29</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

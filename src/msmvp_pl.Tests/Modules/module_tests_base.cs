@@ -1,5 +1,6 @@
 ﻿using Nancy.Bootstrapper;
 using Nancy.Testing;
+using RssMixxxer.LocalCache;
 
 namespace msmvp_pl.Tests.Modules
 {
@@ -9,6 +10,7 @@ namespace msmvp_pl.Tests.Modules
         protected Browser _browser;
 
         private MvpBootstraper _temp__needed_to_ensure_that_web_dll_is_loaded = new MvpBootstraper();
+        private LocalFeedsProvider _temp__needed_to_ensure_that_rss_dll_is_loaded = new LocalFeedsProvider();
 
         public module_tests_base()
         {
