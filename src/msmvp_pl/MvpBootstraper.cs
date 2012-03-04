@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Reflection;
 using Nancy;
+using Nancy.Bootstrapper;
 using Nancy.Conventions;
 using System.Linq;
 using Nancy.ViewEngines;
+using RssMixxxer;
+using TinyIoC;
 
 namespace msmvp_pl
 {
@@ -17,6 +20,14 @@ namespace msmvp_pl
             _allModuleTypes = Assembly.GetExecutingAssembly().GetTypes()
                 .Where(x => typeof (NancyModule).IsAssignableFrom(x))
                 .ToList();
+        }
+
+        protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
+        {
+            base.ApplicationStartup(container, pipelines);
+
+            var mixFeeds = container.Resolve<MixFeeds>();
+            mixFeeds.ForMyNeeds();
         }
 
         protected override void ConfigureConventions(NancyConventions conventions)
