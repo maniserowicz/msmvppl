@@ -1,6 +1,8 @@
+using NLog;
 using Nancy;
 using RssMixxxer.Composition;
 using RssMixxxer;
+using System.Linq;
 
 namespace msmvp_pl.Modules.Rss
 {
@@ -15,8 +17,15 @@ namespace msmvp_pl.Modules.Rss
                 {
                     var feed = _feedComposer.ComposeFeed();
 
+                    _log.Debug("RSS request with headers: IfModifiedSince ({0}), IfNoneMatch ({1})"
+                        , Request.Headers.IfModifiedSince
+                        , string.Join(",", Request.Headers.IfNoneMatch.ToArray())
+                    );
+
                     return feed.GetRssString();
                 };
         }
+
+        private static readonly Logger _log = LogManager.GetCurrentClassLogger();
     }
 }
