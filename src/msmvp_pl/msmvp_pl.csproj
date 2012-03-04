@@ -81,6 +81,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\local-feeds.sdf" />
     <Content Include="App_Data\msmvp_data.sdf" />
     <Content Include="assets\css\bootstrap-responsive.css" />
     <Content Include="assets\css\bootstrap-responsive.min.css" />
