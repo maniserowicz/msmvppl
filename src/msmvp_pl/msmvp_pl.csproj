@@ -109,6 +109,7 @@
     <Compile Include="Core\DbProvider.cs" />
     <Compile Include="Core\ObjectExtensions.cs" />
     <Compile Include="Modules\Home\AboutModule.cs" />
+    <Compile Include="Modules\Home\FaqModule.cs" />
     <Compile Include="Modules\Home\HistoryModule.cs" />
     <Compile Include="Modules\Home\IndexModule.cs" />
     <Compile Include="Modules\Home\_HomeModuleBase.cs" />
@@ -143,9 +144,6 @@
     <Content Include="Views\home\nominations.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\home\some-other-static-page.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\RssMixxxer\src\RssMixxxer\RssMixxxer.csproj">
       <Project>{29FCD44D-8D9E-4737-89BD-B4FB8938DF6F}</Project>
       <Name>RssMixxxer %28RssMixxxer\RssMixxxer%29</Name>
@@ -153,6 +151,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="NLog.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\home\faq.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
