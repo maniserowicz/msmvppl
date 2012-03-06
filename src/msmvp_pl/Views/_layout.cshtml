@@ -47,23 +47,24 @@
                     @RenderBody()
                 </div>
                 <div class="span3">
-                    
-                    @*
-                        we do not want to have twitter in well style.
-                    *@
-                    
-                    @if (IsSectionDefined("twitter")) {
-                        RenderSection("twitter");
-                    }
-                    else { 
-                        <div id="twitter-list"></div>
-                    }
-
-                    <div class="well sidebar-nav">
+                    <div class="sidebar-nav">
                             
                         @RenderSection("RightSidebarTop", false)
-                            
-                        <div>logo webio</div>
+                        
+                        <div class="well">
+                            <h3>Hosting</h3>
+                            <div>logo webio</div>
+                        </div>
+                        
+                        <div class="well">
+                            <h3>Twitter</h3>
+                            @if (IsSectionDefined("twitter")) {
+                                RenderSection("twitter");
+                            }
+                            else { 
+                                <div id="twitter-list"></div>
+                            }
+                        </div>
                             
                         @RenderSection("RightSidebarBottom", false)
 
@@ -102,7 +103,7 @@
                                 interval: 30000,
                                 title: 'Polscy MVP',
                                 subject: 'Co ćwierka w trawie?',
-                                width: 250,
+                                width: 200,
                                 height: 300,
                                 theme: {
                                     shell: {
