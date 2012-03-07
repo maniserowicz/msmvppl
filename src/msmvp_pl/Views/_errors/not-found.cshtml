@@ -1,0 +1,13 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<dynamic>
+@{
+    Layout = "_layout.cshtml";
+}
+@section Title{ Nie znaleziono strony! > }
+
+<div class="hero-unit">
+    <div class="alert alert-error">
+        <h4 class="alert-heading">Wystąpił błąd!</h4>
+        Żądana strona nie istnieje.
+        Wróć na <a href="@Url.Content("~/")">stronę główną</a>.
+    </div>
+</div>
