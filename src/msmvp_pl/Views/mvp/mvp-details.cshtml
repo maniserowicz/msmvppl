@@ -140,10 +140,11 @@ during testing there was a situation where MVP had no contents, but had 1 object
                         widget.render();
                         widget.setUser(data.Twitter);
                         widget.start();
+                    } else {
+                        elem.parent().hide();
                     }
                 });
             }
-
         });
 
             
