@@ -99,6 +99,7 @@
     <Content Include="assets\img\webio.png" />
     <Content Include="assets\js\bootstrap.js" />
     <Content Include="assets\js\bootstrap.min.js" />
+    <Content Include="favicon.ico" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -113,6 +114,7 @@
     <Compile Include="Core\DbProvider.cs" />
     <Compile Include="Core\MvpErrorPageHandler.cs" />
     <Compile Include="Core\ObjectExtensions.cs" />
+    <Compile Include="Core\FavIconStartup.cs" />
     <Compile Include="Modules\Home\AboutModule.cs" />
     <Compile Include="Modules\Home\FaqModule.cs" />
     <Compile Include="Modules\Home\HistoryModule.cs" />

@@ -8,17 +8,17 @@ using System.Linq;
 using Nancy.ViewEngines;
 using RssMixxxer;
 using TinyIoC;
+using msmvp_pl.Core;
 
 namespace msmvp_pl
 {
     public class MvpBootstraper : DefaultNancyBootstrapper
     {
         private static readonly List<Type> _allModuleTypes;
-
         static MvpBootstraper()
         {
             _allModuleTypes = Assembly.GetExecutingAssembly().GetTypes()
-                .Where(x => typeof (NancyModule).IsAssignableFrom(x))
+                .Where(x => typeof(NancyModule).IsAssignableFrom(x))
                 .ToList();
         }
 
@@ -39,6 +39,12 @@ namespace msmvp_pl
             );
 
             conventions.ViewLocationConventions.Insert(0, CustomViewLocationConvention);
+        }
+
+        private byte[] _favIcon;
+        protected override byte[] DefaultFavIcon
+        {
+            get { return _favIcon ?? (_favIcon = FavIconStartup.FavIcon ?? base.DefaultFavIcon); }
         }
 
         // locate view by it's base module's folder
