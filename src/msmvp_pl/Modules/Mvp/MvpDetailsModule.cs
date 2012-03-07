@@ -19,14 +19,14 @@ namespace msmvp_pl.Modules.Mvp
                     .FirstOrDefault()
                     ;
 
-                mvp.StringSlug = new Func<string, string>(
-                    title => new string(title.Where(x => char.IsLetterOrDigit(x)).ToArray())
-                );
-
                 if (mvp == null)
                 {
                     return HttpStatusCode.NotFound;
                 }
+
+                mvp.StringSlug = new Func<string, string>(
+                    title => new string(title.Where(x => char.IsLetterOrDigit(x)).ToArray())
+                );
 
                 return View["mvp-details", mvp];
             };
