@@ -96,6 +96,7 @@
     <Content Include="assets\img\glyphicons-halflings-white.png" />
     <Content Include="assets\img\glyphicons-halflings.png" />
     <Content Include="assets\img\photos\maciej-aniserowicz.png" />
+    <Content Include="assets\img\webio.png" />
     <Content Include="assets\js\bootstrap.js" />
     <Content Include="assets\js\bootstrap.min.js" />
     <Content Include="Web.config">
