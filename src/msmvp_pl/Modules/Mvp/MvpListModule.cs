@@ -31,7 +31,7 @@ namespace msmvp_pl.Modules.Mvp
             {
                 IEnumerable<dynamic> nominations = mvp.Nominations;
 
-                return nominations.Any(y => y.EndDate == null);
+                return nominations.Any(y => y.StartDate != null && y.EndDate == null);
             }
 
             private IEnumerable<dynamic> GroupByCategory(IEnumerable<dynamic> mvps)
@@ -69,8 +69,8 @@ namespace msmvp_pl.Modules.Mvp
                     .FirstOrDefault();
 
                 return lastNomination == null
-                    ? string.Empty
-                    : lastNomination.Category;
+                    ? "?"
+                    : lastNomination.Category ?? "?";
             }
         }
     }
