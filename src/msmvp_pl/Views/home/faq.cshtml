@@ -3,6 +3,10 @@
     Layout = "_layout.cshtml";
 }
 @section Title{ FAQ > }
+@section Breadcrumb{
+<li><a href="@Url.Content("~/")">Strona główna</a> <span class="divider">/</span></li>
+<li class="active"><a>FAQ</a></li>
+}
 
 <h1>FAQ</h1>
 <h3>

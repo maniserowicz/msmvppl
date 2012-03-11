@@ -3,6 +3,11 @@
     Layout = "_layout.cshtml";
 }
 @section Title{ O programie > }
+@section Breadcrumb{
+<li><a href="@Url.Content("~/")">Strona główna</a> <span class="divider">/</span></li>
+<li class="active"><a>O programie</a></li>
+}
+
 <h1>O programie MVP</h1>
 <p>
     Patrząc w skali globalnej mamy do czynienia z rosnącą liczbą ludzi, którzy wykazują

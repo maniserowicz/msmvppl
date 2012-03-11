@@ -4,6 +4,11 @@
 }
 
 @section Title{ @Model.FirstName @Model.LastName > }
+@section Breadcrumb{
+<li><a href="@Url.Content("~/")">Strona główna</a> <span class="divider">/</span></li>
+<li><a href="@Url.Content("~/lista-mvp")">Lista polskich MVP</a> <span class="divider">/</span></li>
+<li class="active"><a>@Model.FirstName @Model.LastName</a></li>
+}
 
 <h1>@Model.FirstName @Model.LastName</h1>
 
