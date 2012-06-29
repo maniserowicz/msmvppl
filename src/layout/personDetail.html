@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Program Microsoft MVP w Polsce</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
+		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.pack.js"></script>
+		<script>
+			$(function(){
+				$('#aboutBtn').click(function(){
+					$('.personInterview').hide('slow');
+					$('.personProgram').hide('slow');
+					$('.personAbout').show('slow');
+					$('#interviewBtn').removeClass('personBtnSelected');
+					$('#programBtn').removeClass('personBtnSelected');
+					$('#aboutBtn').addClass('personBtnSelected');
+				});
+
+				$('#programBtn').click(function(){
+					$('.personInterview').hide('slow');
+					$('.personAbout').hide('slow');
+					$('.personProgram').show('slow');
+					$('#aboutBtn').removeClass('personBtnSelected');
+					$('#interviewBtn').removeClass('personBtnSelected');
+					$('#programBtn').addClass('personBtnSelected');
+				});
+
+				$('#interviewBtn').click(function(){
+					$('.personAbout').hide('slow');
+					$('.personProgram').hide('slow');
+					$('.personInterview').show('slow');
+					$('#aboutBtn').removeClass('personBtnSelected');
+					$('#programBtn').removeClass('personBtnSelected');
+					$('#interviewBtn').addClass('personBtnSelected');
+				});
+				
+			});
+		</script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<header>
+				<div class="logo">
+					<a target="_blank" href="http://mvp.support.microsoft.com/"><img src="img/logoMvp.png" alt="logo MVP" /></a>
+				</div>
+				<nav>
+					<ul>
+						<li><a href="index.html">Strona główna</a></li>
+						<li><a href="#">Lista polskich MVP</a></li>
+						<li><a href="#">MVP RSS feed</a></li>
+					</ul>
+				</nav>
+				<div class="question">
+					<h3>Uwaga! Jesteś / byłeś MVP?</h3>
+					<p>Chciałbyś dodać lub zmienić<br />dane na swój temat? - użyj<br /><a href="#">formularza kontaktowego</a></p>
+				</div>
+				<div class="title"><h1>Microsoft MVP w Polsce!</h1></div>
+				<div class="clearfix"></div>
+			</header>
+				<div class="content">
+				
+					<div class="mainBox">
+						<div class="aboutBox">
+							<img src="img/person.png"/>	
+						</div>
+						<div class="infoBox">
+							<h2>Maciej <br>Aniserowicz</h2>	
+							<p>Absolwent Politechniki Białostockiej. Pasjonat platformy .NET i okolic. Dwukrotny finalista konkursu Imagine Cup. Na co dzień programuje w C#, aktywnie korzysta z portalu CodeGuru i prowadzi blog poświęcony technologii .NET</p>
+						</div>
+						<div class="infoBox">
+							<h2>Nominacje</h2>	
+							<p>2008-01 - ? (Visual C#) </p>
+						</div>
+						<div class="infoBox">
+							<h2>Linki</h2>	
+							<p>
+							blog: <a target="_blank" href="http://www.maciejaniserowicz.com/">www.maciejaniserowicz.com/</a><br>
+							profile: <a target="_blank" href="https://mvp.support.microsoft.com/default.aspx/profile/maciej.aniserowicz">MVP Profile</a><br>
+							Why TFS Is Better Than X: <a target="_blank" href="http://whytfsisbetterthanx.com">whytfsisbetterthanx.com</a><br>
+							twitter: <a target="_blank" href="https://twitter.com/#!/maniserowicz">@maniserowicz</a>
+							</p>
+						</div>
+						<div class="clearfix"></div>
+						<div class="hr"><hr /></div>
+					</div>
+
+				<div class="historyBox">
+						<a href="#" id="aboutBtn" class="personBtn personBtnSelected">
+						O sobie
+						</a>
+						<a href="#" id="programBtn" class="personBtn">
+						Program MVP
+						</a>
+						<a href="#" id="interviewBtn" class="personBtn">
+						Wywiad
+						</a>
+				</div>
+				<div class="personText">
+					<div class="personAbout">
+					<p>Zauważono ostatnimi czasy, że program MVP jest różnie obierany przez szeroko rozumianą społeczność i właściwie nikt tak naprawdę nie wie co za nim idzie. Jako że mam (jeszcze) możliwość takie literki pod nazwiskiem swoim wklepać, w kilku akapitach przedstawię to, jak ja go odbieram.</p>
+					<h3>NOMINACJA</h3>
+					<p>Zostało to powiedziane już wielowielokrotnie, ale powtórzę za tłumem: o tytuł MVP się nie stara, ten tytuł się dostaje. Nadchodzi niespodziewanie. Przyznaje go bliżej nieokreślony KTOŚ w MS według bliżej nieokreślonych kryteriów - i tego trzeba się trzymać. W moim wypadku niekwestionowaną przyczyną otrzymania MVP był udział w ITCore, za co mu z mojej strony chwała i cześć.</p>
+					<h3>BYCIE MVP</h3>
+					<p>Posiadanie takowego tytułu niesie za sobą sporo korzyści. Otrzymuje się masę softu, możliwość kontaktu z zespołami pracującymi w MS nad poszczególnymi produktami, możliwość udziału w corocznej konferencji MVP Summit (podobno bomba - nie byłem), "reklamę" własnej osoby, satysfakcję...</p>
+					<p>Jednak bez wyliczanki, jak jednak tytuł ten wpłynął na MOJE życie? Co mi tak naprawdę dał? Nie ma co ściemniać - z możliwości kontaktu z pracownikami w Redmond nie korzystałem, w różnych programach beta-testing udziału nie brałem, większość maili które otrzymywałem z powodu bycia MVP wędrowała do kosza - generalnie "byciem bliżej MS" zainteresowany zbytnio nie byłem.</p>
+					<p>Jednak otrzymanie tego tytułu przyczyniło się w znacznej mierze do tego, kim jestem i co reprezentuję teraz. Prawie rok temu, gdy w Nowy Rok sprawdziłem maila i zobaczyłem wiadomość z informacją o nominacji, odezwała się we mnie dzika, pozytywna i konstruktywna AMBICJA. "A udowodnię wszystkim, udowodnię SOBIE, że naprawdę na ten tytuł zasługuję!" Że to, czym stało się (i jest nadal) ITCore nie definiuje całego mojego potencjału. Że stać mnie jednak na pokazanie się z dobrej strony i stworzenie czegoś udanego. Do roboty!</p>
+					<p>Od MVP nie oczekuje się niczego, ponieważ tytuł przynawany jest za aktywność DOKONANĄ przez miniony rok, a nie DOMNIEMANĄ na przyszłość. U mnie zadziałało to jednak niejako w drugą stronę - stąd mój (coraz fajniejszy;) ) blog, stąd okresowo wzmożona aktywność na forum CodeGuru, stąd zapał do dalszej pracy nad sobą. Stąd wreszcie chęć inspirowania innych... jeśli choć jedna osoba dzięki temu znalazła nowe siły na swój rozwój czy rozświetliły się jej perspektywy i nadzieje na przyszłość - to odniosłem sukces. A wiem, że osób takich jest więcej niż jedna.</p>
+					<p>Tak naprawdę właśnie TYM jest dla mnie tytuł MVP - początkiem drogi, a nie jej końcem! Kopem energii, bez którego nie miałbym dzisiaj tylu powodów do zadowolenia i satysfakcji, ile mam; bez którego nie miałbym w głowie tylu pomysłów, planów i zamierzeń, ile mam. Pozostałe benefity także są miłe i mają oczywiście znaczenie, ale... zdecydowanie schodzą na dalszy plan.</p>
+					<h3>RENOMINACJA/POŻEGNANIE</h3>
+					<p>To już prawie rok mojego MVPostwa, nadchodzi czas renominacji bądź jej braku. Oczywiście, miło byłoby nie musieć usuwać z bloga tego szpanerskiego znaczka, ale gdy okaże się inaczej... odejdę ze świadomością, że w sporym zakresie wykorzystałem szansę jaką rzucił mi los.</p>
+					<h3>CZY WARTO?</h3>
+					<p>Czy warto udzielać się na forum, pisać artykuły, pomagać innym rozwiązując ich problemy, mając cały czas przed sobą wizję zostania MVP? Hmm.. Odpowiedź jest jedna i prawdopodobnie każdy udzieli takiej samej: zdecydowanie NIE. Jak wspomniałem wcześniej, tytuł MVP nie może być celem. Jego rola to dodatkowa motywacja, przyjemna niespodzianka. Dodatek do tego, co robiłoby się nawet gdyby owego tytułu nikt nigdy nie wymyślił.</p>
+					</div>
+					<div class="personProgram">
+						<h3>info o programie</h3>
+					</div>
+					<div class="personInterview">
+						<h3>info o wywiadzie</h3>
+					</div>
+				</div>
+
+				<div class="twitter">
+					<div class="twitterHeader">
+						<h4>Polscy MVP</h4>
+						<h3>Co ćwierka w trawie?</h3>
+					</div>
+					<div class="twitterContent"></div>
+					<div class="twitterFooter">
+						<a target="_blank" href="https://twitter.com/"><img src="img/twitterIcon.png" alt="twitter icon" /></a>
+						<a target="_blank" href="https://twitter.com/#!/search/from:maniserowicz%20OR%20from:gutek%20OR%20from:sagus%20OR%20from:bielawb%20OR%20from:d3m80l?q=from%3Amaniserowicz+OR+from%3Agutek+OR+from%3Asagus+OR+from%3Abielawb+OR+from%3Ad3m80l" class="twitterJoin">Join the conversation</a>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<footer>
+				<div class="footContent">
+					<p>Powered by <a target="_blank" href="http://nancyfx.org/">NancyFx</a> & <a target="_blank" href="https://github.com/markrendle/Simple.Data">Simple.Data</a>.</p>
+					<p>Created and maintained by <a target="_blank" href="http://www.maciejaniserowicz.com/">Maciej Aniserowicz</a> and <a target="_blank" href="https://github.com/maniserowicz/msmvppl/pulls">Contributors</a>. Layout/design by <a target="_blank" href="http://www.devcore.pl/start">DevCore.net</a>.</p>
+					<p>Sources available on <a target="_blank" href="https://github.com/maniserowicz/msmvppl">GitHub</a>, feel free to contribute!</p>
+				</div>
+				<img src="img/devcore.png"/>
+				<div class="clearfix"></div>
+			</footer>
+		</div>
+	</body>
+</html>

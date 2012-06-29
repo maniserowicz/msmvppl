@@ -1,0 +1,223 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Program Microsoft MVP w Polsce</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
+		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.pack.js"></script>
+		<script>
+			$(function(){
+				$('#actualBtn').click(function(){
+					$('.exMVP').hide('slow');
+					$('.actualMVP').show('slow');
+					$('#exBtn').removeClass('knowItemSelected');
+					$('#actualBtn').addClass('knowItemSelected');
+				});
+				$('#exBtn').click(function(){
+					$('.actualMVP').hide('slow');
+					$('.exMVP').show('slow');
+					$('#actualBtn').removeClass('knowItemSelected');
+					$('#exBtn').addClass('knowItemSelected');
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<header>
+				<div class="logo">
+					<a target="_blank" href="http://mvp.support.microsoft.com/"><img src="img/logoMvp.png" alt="logo MVP" /></a>
+				</div>
+				<nav>
+					<ul>
+						<li><a href="index.html">Strona główna</a></li>
+						<li><a href="#">Lista polskich MVP</a></li>
+						<li><a href="#">MVP RSS feed</a></li>
+					</ul>
+				</nav>
+				<div class="question">
+					<h3>Uwaga! Jesteś / byłeś MVP?</h3>
+					<p>Chciałbyś dodać lub zmienić<br />dane na swój temat? - użyj<br /><a href="#">formularza kontaktowego</a></p>
+				</div>
+				<div class="title"><h1>Microsoft MVP w Polsce!</h1></div>
+				<div class="clearfix"></div>
+			</header>
+				<div class="content">
+					<div class="historyBox">
+						<a href="#" id="actualBtn" class="knowItem knowItemSelected">
+							<h2>Aktualni MVP</h2>
+						</a>
+						<a href="#" id="exBtn" class="knowItem">
+							<h2>Ex-MVP</h2>
+						</a>
+						<div class="clearfix"></div>
+						<div class="actualMVP">
+							<div class="categoryItem">
+							VISUAL C#
+							</div>
+							<a href="personDetail.html" class="personItem">Maciej Aniserowicz</a>
+							<a href="#" class="personItem">Wojciech Poniatowski</a>
+							<a href="#" class="personItem">Piotr Zieliński</a>
+							<div class="categoryItem">
+							SHAREPOINT SERVER
+							</div>
+							<a href="#" class="personItem">Michał Bojko</a>
+							<a href="#" class="personItem">Jakub Gutkowski</a>
+							<div class="categoryItem">
+							ENTERPRISE SECURITY
+							</div>
+							<a href="#" class="personItem">Paula Januszkiewicz</a>
+							<a href="#" class="personItem">Grzegorz Tworek</a>
+							<div class="categoryItem">
+							DIRECTORY SERVICES
+							</div>
+							<a href="#" class="personItem">Paweł Pławiak</a>
+							<div class="categoryItem">
+							EXCHANGE SERVER
+							</div>
+							<a href="#" class="personItem">Piotr Pawlik</a>
+							<a href="#" class="personItem">Konrad Sagała</a>
+							<div class="categoryItem">
+							SQL SERVER
+							</div>
+							<a href="#" class="personItem">łukasz Grala</a>
+							<a href="#" class="personItem">Tobiasz Janusz Koprowski</a>
+							<a href="#" class="personItem">Marcin Szeliga</a>
+							<a href="#" class="personItem">Damian Widera</a>
+							<div class="categoryItem">
+							SMALL BUSINESS SERVER
+							</div>
+							<a href="#" class="personItem">Dariusz Fabicki</a>
+							<a href="#" class="personItem">Tadeusz Lopatkiewicz</a>
+							<div class="categoryItem">
+							DATA CENTER MANAGEMENT
+							</div>
+							<a href="#" class="personItem">łukasz Rutkowski</a>
+							<a href="#" class="personItem">Karol Stilger</a>
+							<a href="#" class="personItem">Robert Stuczyński</a>
+							<div class="categoryItem">
+							CLIENT OPERATING SYSTEM
+							</div>
+							<a href="#" class="personItem">Piotr Palusiński</a>
+							<div class="categoryItem">
+							MICROSOFT PROJECT
+							</div>
+							<a href="#" class="personItem">Sebastian Wilczewski</a>
+							<div class="categoryItem">
+							SERVER
+							</div>
+							<a href="#" class="personItem">Piotr Krzyżański</a>
+							<div class="categoryItem">
+							IDENTITY & ACCESS
+							</div>
+							<a href="#" class="personItem">Tomasz Onyszko</a>
+							<div class="categoryItem">
+							WINDOWS SERVER - HS
+							</div>
+							<a href="#" class="personItem">Jacek Kolonko</a>
+							<div class="categoryItem">
+							POWERSHELL
+							</div>
+							<a href="#" class="personItem">Bartosz Bielawski</a>
+							<div class="categoryItem">
+							OFFICE SYSTEM
+							</div>
+							<a href="#" class="personItem">Oskar Shon</a>
+							<div class="categoryItem">
+							INTERNET EXPLORER
+							</div>
+							<a href="#" class="personItem">Marcin Borecki</a>
+							<a href="#" class="personItem">Marcin Dembowski</a>
+							<div class="categoryItem">
+							DEVICE APPLICATION DEVELOPMENT
+							</div>
+							<a href="#" class="personItem">Szymon Kobalczyk</a>
+							<div class="categoryItem">
+							SYSTEM CENTER CONFIGURATION MANAGER
+							</div>
+							<a href="#" class="personItem">Jacek Doktór</a>
+							<div class="categoryItem">
+							DATA & STORAGE
+							</div>
+							<a href="#" class="personItem">Grzegorz Stolecki</a>
+							<div class="categoryItem">
+							DYNAMMICS CRM
+							</div>
+							<a href="#" class="personItem">Jakub Skalbania</a>
+							<div class="categoryItem">
+							WINDOWS EXPERT-CONSUMER
+							</div>
+							<a href="#" class="personItem">Daniel Potyrala</a>
+							<div class="categoryItem">
+							VIRTUAL MACHINE
+							</div>
+							<a href="#" class="personItem">Dariusz Porowski</a>
+							<div class="categoryItem">
+							EXPRESSION BLEND
+							</div>
+							<a href="#" class="personItem">Marcin Iwanowski</a>
+							<div class="categoryItem">
+							MANAGEMENT INFRASTRUCTURE
+							</div>
+							<a href="#" class="personItem">Daniel Stefaniak</a>
+							<div class="categoryItem">
+							VISUAL STUDIO ALM
+							</div>
+							<a href="#" class="personItem">Grzegorz Rycaj</a>
+							<div class="categoryItem">
+							SYSTEM CENTER OPERATIONS MANAGER
+							</div>
+							<a href="#" class="personItem">Joanna Subik</a>
+							<div class="categoryItem">
+							WINDOWS PHONE DEVELPEMENT
+							</div>
+							<a href="#" class="personItem">Maciej Grabek</a>
+						</div>
+
+						<div class="exMVP">
+							<div class="categoryItem">
+								SQL SERVER
+							</div>
+							<a href="#" class="personItem">Marek Adamczuk</a>
+							<a href="#" class="personItem">Paweł Potasiński</a>
+							<div class="categoryItem">
+								ASP.NET
+							</div>
+							<a href="#" class="personItem">Jakub Binkowski</a>
+							<div class="categoryItem">
+								Visual C#
+							</div>
+							<a href="#" class="personItem">Marcin Celej</a>
+							<a href="#" class="personItem">Wiktor Zychla</a>
+						</div>
+
+					</div>
+
+
+
+
+					<div class="twitter">
+						<div class="twitterHeader">
+							<h4>Polscy MVP</h4>
+							<h3>Co ćwierka w trawie?</h3>
+						</div>
+						<div class="twitterContent"></div>
+						<div class="twitterFooter">
+							<a target="_blank" href="https://twitter.com/"><img src="img/twitterIcon.png" alt="twitter icon" /></a>
+							<a target="_blank" href="https://twitter.com/#!/search/from:maniserowicz%20OR%20from:gutek%20OR%20from:sagus%20OR%20from:bielawb%20OR%20from:d3m80l?q=from%3Amaniserowicz+OR+from%3Agutek+OR+from%3Asagus+OR+from%3Abielawb+OR+from%3Ad3m80l" class="twitterJoin">Join the conversation</a>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			<footer>
+				<div class="footContent">
+					<p>Powered by <a target="_blank" href="http://nancyfx.org/">NancyFx</a> & <a target="_blank" href="https://github.com/markrendle/Simple.Data">Simple.Data</a>.</p>
+					<p>Created and maintained by <a target="_blank" href="http://www.maciejaniserowicz.com/">Maciej Aniserowicz</a> and <a target="_blank" href="https://github.com/maniserowicz/msmvppl/pulls">Contributors</a>. Layout/design by <a target="_blank" href="http://www.devcore.pl/start">DevCore.net</a>.</p>
+					<p>Sources available on <a target="_blank" href="https://github.com/maniserowicz/msmvppl">GitHub</a>, feel free to contribute!</p>
+				</div>
+				<img src="img/devcore.png"/>
+				<div class="clearfix"></div>
+			</footer>
+		</div>
+	</body>
+</html>
