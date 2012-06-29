@@ -4,40 +4,57 @@
 }
 
 @section Title{ Lista polskich MVP > }
-@section Breadcrumb{
-<li><a href="@Url.Content("~/")">Strona główna</a> <span class="divider">/</span></li>
-<li class="active"><a>Lista polskich MVP</a></li>
-}
 
 <h1>Polscy MVP</h1>
 
-<ul class="nav nav-tabs">
-    <li class="active"><a href="#mvp-current" data-toggle="tab">Aktualni</a></li>
-    <li><a href="#mvp-ex" data-toggle="tab">Ex-MVP</a></li>
-</ul>
-<div class="tab-content">
-    <div class="tab-pane fade in active" id="mvp-current">
-        <ul class="nav nav-list">
-            @foreach (var group in @Model.Current)
+<div class="historyBox">
+    <a href="#" id="actualBtn" class="knowItem knowItemSelected">
+        <h2>Aktualni MVP</h2>
+    </a>
+    <a href="#" id="exBtn" class="knowItem">
+        <h2>Ex-MVP</h2>
+    </a>
+    <div class="clearfix"></div>
+    <div class="actualMVP">
+        @foreach (var group in @Model.Current)
+        {
+            <div class="categoryItem">@group.Category.ToUpper()</div>
+            @foreach (var mvp in @group.Mvps)
             {
-                <li class="nav-header">@group.Category</li>
-                @foreach (var mvp in @group.Mvps)
-                {
-                    <li><a href="@Url.Content("~/lista-mvp/" + @mvp.Slug)">@mvp.FirstName @mvp.LastName</a></li>
-                }
-            }        
-        </ul>
+                <a href="@Url.Content("~/lista-mvp/" + @mvp.Slug)" class="personItem">@mvp.FirstName @mvp.LastName</a>
+            }
+        }        
     </div>
-    <div class="tab-pane fade" id="mvp-ex">
-        <ul class="nav nav-list">
-            @foreach (var group in @Model.Ex)
+    <div class="exMVP">
+        @foreach (var group in @Model.Ex)
+        {
+            <div class="categoryItem">@group.Category.ToUpper()</div>
+            @foreach (var mvp in @group.Mvps)
             {
-                <li class="nav-header">@group.Category</li>
-                @foreach (var mvp in @group.Mvps)
-                {
-                    <li><a href="@Url.Content("~/lista-mvp/" + @mvp.Slug)">@mvp.FirstName @mvp.LastName</a></li>
-                }
-            }        
-        </ul>
+                <a href="@Url.Content("~/lista-mvp/" + @mvp.Slug)" class="personItem">@mvp.FirstName @mvp.LastName</a>
+            }
+        }        
     </div>
 </div>
+
+<div id="twitter-list"></div>
+
+@section scripts
+{
+<script type="text/javascript">
+    $(function() {
+        $('#actualBtn').click(function() {
+            $('.exMVP').hide('slow');
+            $('.actualMVP').show('slow');
+            $('#exBtn').removeClass('knowItemSelected');
+            $('#actualBtn').addClass('knowItemSelected');
+        });
+        $('#exBtn').click(function() {
+            $('.actualMVP').hide('slow');
+            $('.exMVP').show('slow');
+            $('#actualBtn').removeClass('knowItemSelected');
+            $('#exBtn').addClass('knowItemSelected');
+        });
+    });
+</script>
+}
