@@ -31,6 +31,14 @@
             </header>
             <div class="content">
                 @RenderBody()
+                @if (IsSectionDefined("twitter"))
+                {
+                    RenderSection("twitter");
+                }
+                else
+                { 
+                    <div id="twitter-list"></div>
+                }
                 <div class="clearfix"></div>
             </div>
             <footer>
