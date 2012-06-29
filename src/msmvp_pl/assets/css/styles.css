@@ -472,6 +472,6 @@ a.personBtn:hover, a.personBtnSelected {
     line-height: 180% 
 }
 
-.exMVP, .personInterview, .personProgram{
+.exMVP, .personTextNotselected{
     display: none;
 }

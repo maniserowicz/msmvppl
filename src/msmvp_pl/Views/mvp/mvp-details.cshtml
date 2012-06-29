@@ -4,41 +4,40 @@
 }
 
 @section Title{ @Model.FirstName @Model.LastName > }
-@section Breadcrumb{
-<li><a href="@Url.Content("~/")">Strona główna</a> <span class="divider">/</span></li>
-<li><a href="@Url.Content("~/lista-mvp")">Lista polskich MVP</a> <span class="divider">/</span></li>
-<li class="active"><a>@Model.FirstName @Model.LastName</a></li>
-}
 
-<h1>@Model.FirstName @Model.LastName</h1>
-
-@if (Model.PhotoFile != null)
-{
-    <p><img src="@Url.Content("~/assets/img/photos/" + @Model.PhotoFile)"/></p>
-}
-
-<p>@Html.Raw(@Model.Bio)</p>
-
+<div class="mainBox">
+    <div class="aboutBox">
+    @if (Model.PhotoFile != null)
+    {
+        <img src="@Url.Content("~/assets/img/photos/" + @Model.PhotoFile)" alt="@Model.FirstName @Model.LastName"/>
+    }
+    else
+    {
+        <img src="@Url.Content("~/assets/img/person.png")" alt="@Model.FirstName @Model.LastName"/>
+    }
+    </div>
+    <div class="infoBox">
+        <h2>@Model.FirstName<br />@Model.LastName</h2>	
+        <p>@Html.Raw(@Model.Bio)</p>
+    </div>
 @*
 this condition ensures that contents is really fetched
 during testing there was a situation where MVP had no Nominations, but had 1 object in the collection (with null start date)
 *@
 @if (@Model.Nominations.Count > 0 && @Model.Nominations.First().StartDate != null)
 {
-    <fieldset>
-        <legend>Nominacje</legend>
-        <ul class="nav nav-list">
-            @foreach (var nomination in @Model.Nominations)
-            {
-            <li>
-                @nomination.StartDate.ToString("yyyy-MM")
-                -
-                @(nomination.EndDate == null ? "?" : nomination.EndDate.ToString("yyyy-MM"))
-                (@nomination.Category)
-            </li>
-            }
-        </ul>
-    </fieldset>
+    <div class="infoBox">
+        <h2>Nominacje</h2>	
+        @foreach (var nomination in @Model.Nominations)
+        {
+        <p>
+            @nomination.StartDate.ToString("yyyy-MM")
+            -
+            @(nomination.EndDate == null ? "?" : nomination.EndDate.ToString("yyyy-MM"))
+            (@nomination.Category)
+        </p>
+        }
+    </div>
 }
 
 @*
@@ -47,20 +46,25 @@ during testing there was a situation where MVP had no links, but had 1 object in
 *@
 @if (@Model.Links.Count > 0 && @Model.Links.First().Value != null)
 {
-    <fieldset>
-        <legend>Linki</legend>
+    <div class="infoBox">
+        <h2>Linki</h2>	
+        <p>
         @foreach (var link in @Model.Links)
         {
-            <p>
             @if (@link.Name != null)
             {
                 @link.Name@::
             }
-            @Html.Raw(link.Value)
-            </p>
+            <span style="white-space: nowrap">@Html.Raw(link.Value)</span>
+            <br />
         }
-    </fieldset>
+        </p>
+    </div>
 }
+
+    <div class="clearfix"></div>
+    <div class="hr"><hr /></div>
+</div>
 
 @*
 this condition ensures that contents is really fetched
@@ -69,33 +73,37 @@ during testing there was a situation where MVP had no contents, but had 1 object
 
 @if (@Model.Contents.Count > 0 && @Model.Contents.First().Title != null)
 {
-    <ul class="nav nav-tabs">
-        @foreach (var content in @Model.Contents)
+<div class="historyBox">
+    @foreach (var content in @Model.Contents)
+    {
+    <a href="#" rel="content-@Model.StringSlug(@content.Title)" @if (content == Model.Contents.First())
         {
-            <li @if (content == Model.Contents.First())
-                {
-                    <text>class="active"</text>
-                }>
-                <a href="#content-@Model.StringSlug(@content.Title)" data-toggle="tab">@content.Title</a>
-            </li>
+            <text>class="personBtn personBtnSelected"</text>
         }
-    </ul>
+        else
+        {
+            <text>class="personBtn"</text>
+        }>
+        @content.Title
+    </a>
+    }
+</div>
 
-    <div class="tab-content">
-        @foreach (var content in @Model.Contents)
+<div class="personText">
+@foreach (var content in @Model.Contents)
+{
+<div @if (content == Model.Contents.First())
         {
-            <div @if (content == Model.Contents.First())
-                 {
-                     <text>class="tab-pane fade in active"</text>
-                 }
-                 else
-                 {
-                     <text>class="tab-pane fade"</text>
-                 } id="content-@Model.StringSlug(@content.Title)">
-                @Html.Raw(content.Text)
-            </div>
+            <text>class="personTextContent personTextSelected"</text>
         }
-    </div>
+        else
+        {
+            <text>class="personTextContent personTextNotselected"</text>
+        } id="content-@Model.StringSlug(@content.Title)">
+    @Html.Raw(content.Text)
+</div>
+}
+</div>
 }
 
 @section twitter
@@ -146,12 +154,26 @@ during testing there was a situation where MVP had no contents, but had 1 object
                         widget.setUser(data.Twitter);
                         widget.start();
                     } else {
-                        elem.parent().hide();
+                        elem.hide();
                     }
                 });
             }
-        });
 
+        $('.personBtn').click(function () {
+            var slug = this.rel;
+            var item = $('#' + slug);
             
+            if (item && item.is(':visible')) {
+                return false;
+            }
+            $('.personTextContent').hide('slow');
+            item.show('slow');
+            $('.personBtn').removeClass('personBtnSelected');
+            $(this).addClass('personBtnSelected');
+
+            return false;
+        });
+    });
+
     </script>
 }
