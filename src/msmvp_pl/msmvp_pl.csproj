@@ -89,16 +89,20 @@
   <ItemGroup>
     <Content Include="App_Data\local-feeds.sdf" />
     <Content Include="App_Data\msmvp_data.sdf" />
-    <Content Include="assets\css\bootstrap-responsive.css" />
-    <Content Include="assets\css\bootstrap-responsive.min.css" />
-    <Content Include="assets\css\bootstrap.css" />
-    <Content Include="assets\css\bootstrap.min.css" />
-    <Content Include="assets\img\glyphicons-halflings-white.png" />
-    <Content Include="assets\img\glyphicons-halflings.png" />
+    <Content Include="assets\css\styles.css" />
+    <Content Include="assets\img\aboutBtn.png" />
+    <Content Include="assets\img\bannerImg.jpg" />
+    <Content Include="assets\img\buttonBg.png" />
+    <Content Include="assets\img\devcore.png" />
+    <Content Include="assets\img\faqBtn.png" />
+    <Content Include="assets\img\historyBtn.png" />
+    <Content Include="assets\img\knowBtn.png" />
+    <Content Include="assets\img\logoMvp.png" />
+    <Content Include="assets\img\person.png" />
     <Content Include="assets\img\photos\maciej-aniserowicz.png" />
+    <Content Include="assets\img\questionBg.png" />
+    <Content Include="assets\img\twitterIcon.png" />
     <Content Include="assets\img\webio.png" />
-    <Content Include="assets\js\bootstrap.js" />
-    <Content Include="assets\js\bootstrap.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -166,6 +170,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\_errors\not-found.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="assets\js\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

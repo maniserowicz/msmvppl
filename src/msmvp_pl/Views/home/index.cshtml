@@ -2,41 +2,32 @@
 @{
     Layout = "_layout.cshtml";
 }
-@section Breadcrumb{
-<li class="active"><a>Strona główna</a></li>
-}
 
-<div class="hero-unit">
-    <h2>Microsoft MVP w Polsce!</h2>
-    <div class="alert alert-info">
-        <h4 class="alert-heading">Uwaga! Jesteś/byłeś MVP?</h4>
-        Jeśli jesteś lub byłeś MVP i chciałbyś dodać lub zmienić dane na swój temat - użyj <a href="http://www.maciejaniserowicz.com/contact.aspx">formularza kontaktowego (link)</a>.
-    </div>
-    <p>Witaj na stronie polskich MVP.</p>
-    <p>Info o programie...</p>
-    <p><a class="btn btn-primary btn-large" href="http://mvp.support.microsoft.com/" target="_blank">Oficjalna strona programu &raquo;</a></p>
+<div class="banner">
+    <h2>Witaj na stronie polskich MVP.</h2>
+    <p>Informacje o programie...</p>
+    <a target="_blank" href="http://mvp.support.microsoft.com/" class="bannerBtn">Oficjalna strona programu</a>
 </div>
-<div class="row-fluid">
-    <div class="span6">
+
+<div id="twitter-list"></div>
+
+<div class="clearfix"></div>
+
+<div class="mainBox">
+    <a href="@Url.Content("~/lista-mvp")" class="boxItem">
         <h2>Poznaj MVP</h2>
-        <p>Zobacz aktualną listę MVP...</p>
-        <p><a class="btn" href="@Url.Content("~/lista-mvp")">Zobacz listę &raquo;</a></p>
-    </div>
-    <div class="span6">
+        <img src="@Url.Content("~/assets/img/knowBtn.png")" alt="Poznaj MVP" />
+    </a>
+    <a href="@Url.Content("o-programie")" class="boxItem">
         <h2>O programie</h2>
-        <p>Opis programu...</p>
-        <p><a class="btn" href="@Url.Content("o-programie")">Dowiedz się więcej &raquo;</a></p>
-    </div>
-</div>
-<div class="row-fluid">
-    <div class="span6">
-        <h2>Historia programu</h2>
-        <p>Program w PL od X roku, od tego czasu Y MVPs...</p>
-        <p><a class="btn" href="@Url.Content("historia")">Zapoznaj się z historią programu &raquo;</a></p>
-    </div>
-    <div class="span6">
+        <img src="@Url.Content("~/assets/img/aboutBtn.png")" alt="O programie" />
+    </a>
+    <a href="@Url.Content("historia")" class="boxItem">
+        <h2>Historia</h2>
+        <img src="@Url.Content("~/assets/img/historyBtn.png")" alt="Historia" />
+    </a>
+    <a href="@Url.Content("faq")" class="boxItem">
         <h2>FAQ</h2>
-        <p>Najczęściej zadawane pytania dotyczące programu MVP i odpowiedzi na nie</p>
-        <p><a class="btn" href="@Url.Content("faq")">Przeczytaj całość &raquo;</a></p>
-    </div>
+        <img src="@Url.Content("~/assets/img/faqBtn.png")" alt="FAQ" />
+    </a>
 </div>
