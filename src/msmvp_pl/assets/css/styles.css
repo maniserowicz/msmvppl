@@ -95,6 +95,9 @@ nav>ul>li>a:hover {
     float: left;
     margin: 48px 0 0 60px;
 }
+.title a{
+    color: #000;
+}
 
 .clearfix{
     clear:both;
