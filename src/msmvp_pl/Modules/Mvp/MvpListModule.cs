@@ -57,10 +57,11 @@ namespace msmvp_pl.Modules.Mvp
             {
                 get
                 {
-                    return GroupByCategory(_mvps.Where(x => !IsCurrent(x)));
+                    return GroupByCategory(_mvps.Where(x => !IsCurrent(x))).OrderBy(x => x.Category);
                 }
             }
 
+            private const string UNKNOWN_CATEGORY_NAME = "[nieznana]";
             public string LastCategory(dynamic mvp)
             {
                 IEnumerable<dynamic> nominations = mvp.Nominations;
@@ -68,9 +69,22 @@ namespace msmvp_pl.Modules.Mvp
                 var lastNomination = nominations.OrderByDescending(x => x.StartDate)
                     .FirstOrDefault();
 
-                return lastNomination == null
-                    ? "?"
-                    : lastNomination.Category ?? "?";
+                if (lastNomination == null)
+                {
+                    return UNKNOWN_CATEGORY_NAME;
+                }
+
+                if (lastNomination.Category == null)
+                {
+                    return UNKNOWN_CATEGORY_NAME;
+                }
+
+                if (lastNomination.Category == "?")
+                {
+                    return UNKNOWN_CATEGORY_NAME;
+                }
+
+                return lastNomination.Category;
             }
         }
     }
