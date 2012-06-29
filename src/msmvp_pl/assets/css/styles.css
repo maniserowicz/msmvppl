@@ -42,6 +42,10 @@ ul,li{
     margin:0 0 0 10px;
 }
 
+.logo img{
+    border:0
+}
+
 nav{
     margin: 0px 0px 0px 50px;
     float: left;
