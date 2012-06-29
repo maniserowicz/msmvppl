@@ -99,7 +99,11 @@
     <Content Include="assets\img\knowBtn.png" />
     <Content Include="assets\img\logoMvp.png" />
     <Content Include="assets\img\person.png" />
+    <Content Include="assets\img\photos\daniel_potyrala.jpg" />
     <Content Include="assets\img\photos\maciej-aniserowicz.png" />
+    <Content Include="assets\img\photos\oskar_shon.jpg" />
+    <Content Include="assets\img\photos\palusinski_piotr.jpg" />
+    <Content Include="assets\img\photos\pawel_plawiak.jpg" />
     <Content Include="assets\img\questionBg.png" />
     <Content Include="assets\img\twitterIcon.png" />
     <Content Include="assets\img\webio.png" />
