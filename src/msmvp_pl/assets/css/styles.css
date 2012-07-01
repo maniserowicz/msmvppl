@@ -425,11 +425,11 @@ a.personItem:hover {
 }
 
 a.personBtn{
-    width: 100px;
+    width: 130px;
     height: 31px;
     background: #b7b7b7;
     display:block;
-    margin: 10px 30px -10px 0px;
+    margin: 10px 15px -10px 0px;
     float: left;
     color:#fff;
     text-align: center;
