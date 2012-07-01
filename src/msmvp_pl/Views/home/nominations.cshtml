@@ -18,13 +18,13 @@
                 @foreach (var nomination in @Model.StartedNominations(year, month.Number))
                 {
                     <a href="@Url.Content("~/lista-mvp/" + @nomination.Mvp.Slug)">@nomination.Mvp.FirstName
-                        @nomination.Mvp.LastName (@nomination.Category)</a>
+                        @nomination.Mvp.LastName (@nomination.Category)</a><br />
                 }
                 <p>Z programu odeszli</p>
                 @foreach (var nomination in @Model.FinishedNominations(year, month.Number))
                 {
                     <a href="@Url.Content("~/lista-mvp/" + @nomination.Mvp.Slug)">@nomination.Mvp.FirstName
-                        @nomination.Mvp.LastName (@nomination.Category)</a>
+                        @nomination.Mvp.LastName (@nomination.Category)</a><br />
                 }
             }
         </div>
