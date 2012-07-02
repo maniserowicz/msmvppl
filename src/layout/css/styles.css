@@ -29,6 +29,8 @@ ul,li{
 	list-style: none;
 	margin: 0;
 	padding: 0;
+	font-family: Arial;
+	color: #636363;
 }
 
 .wrapper{
@@ -198,6 +200,7 @@ div.boxItem{
 	display:block;
 	margin: 10px 10px 10px 10px;
 	float: left;
+	position: relative;
 }
 
 div.boxItem>h2{
@@ -211,21 +214,30 @@ div.boxItem>h2{
 }
 
 div.boxItem>.boxItemContent{
+	position:absolute;
+	top:20px;
+	left:0;
+	background:#f4f4f4;
 	width:200px;
-	height: 200px;
-	float:left;
+	height:180px;
 	font-size:11px;
-	margin:0 10px;
 	padding:10px;
 	overflow-y:auto;
 	display: none;
 }
+
 .boxItemContent>h3{
 	font-size:24px;
-	margin:0 0 5px 0;
+	margin:0 0 10px 0;
 }
+
 .boxItemContent>p{
 	margin:5px 0;
+}
+
+.boxItemContent>a{
+	margin:0 0 5px 0;
+	display: block;
 }
 
 div.boxItem>h2:hover{
@@ -257,7 +269,7 @@ footer>.footContent>p{
 	line-height: 100%;
 }
 
-footer>img{
+footer>a>img{
 	width: 145px;
 	height: 30px;
 	float: right;
@@ -401,7 +413,6 @@ a.personItem:hover {
 
 .infoBox{
 	width: 220px;
-	height: 220px;
 	display:block;
 	margin: 10px 10px 10px 10px;
 	float: left;
@@ -418,18 +429,20 @@ a.personItem:hover {
 	margin: 20px 0 0 10px;
 }
 
+.infoBox>ul{
+	margin: 10px;
+}
+
 .infoBox>a{
 	margin: 30px 0 0 10px;
 	font-size:10px;
 }
 
-.hr{
+hr{
+	border:none;
+	border-top:1px solid #ddd;
 	width: 940px;
-	border: none;
-  background-color: #8d8f90;
-  color: #8d8f90;
-  height: 1px;
-  margin: 15px 0 10px 0;
+	margin: 15px 10px 10px 10px;
 }
 
 a.personBtn{
@@ -437,7 +450,7 @@ a.personBtn{
 	height: 31px;
 	background: #b7b7b7;
 	display:block;
-	margin: 10px 30px -10px 0px;
+	margin: 10px 10px -10px 0px;
 	float: left;
 	color:#fff;
 	text-align: center;
@@ -471,6 +484,16 @@ a.personBtn:hover, a.personBtnSelected {
 	color: #000000;
 	margin: 10px 20px 20px 20px;
 	line-height: 180% 
+}
+
+.personText ul{
+	font-size: 11px;
+	margin: 10px 20px 20px 20px;
+	color: #000000;
+}
+
+.personText ul li{
+	color: #000000;
 }
 
 .personText h3{
