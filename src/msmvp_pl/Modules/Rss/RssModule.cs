@@ -13,7 +13,7 @@ namespace msmvp_pl.Modules.Rss
         public RssModule(IFeedComposer feedComposer)
         {
             _feedComposer = feedComposer;
-            Get["/mvp-rss"] = _ =>
+            Get["/mvp-pl-rss"] = _ =>
                 {
                     var feed = _feedComposer.ComposeFeed();
 
