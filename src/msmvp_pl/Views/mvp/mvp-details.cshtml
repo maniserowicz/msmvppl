@@ -9,11 +9,11 @@
     <div class="aboutBox">
     @if (Model.PhotoFile != null)
     {
-        <img src="@Url.Content("~/assets/img/photos/" + @Model.PhotoFile)" alt="@Model.FirstName @Model.LastName"/>
+        <img src="@Url.Content("~/assets/img/photos/" + @Model.PhotoFile)" alt="@Model.FirstName @Model.LastName" class="mvpPhoto"/>
     }
     else
     {
-        <img src="@Url.Content("~/assets/img/person.png")" alt="@Model.FirstName @Model.LastName"/>
+        <img src="@Url.Content("~/assets/img/person.png")" alt="@Model.FirstName @Model.LastName" class="mvpPhoto"/>
     }
     </div>
     <div class="infoBox">

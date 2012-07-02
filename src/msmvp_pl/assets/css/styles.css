@@ -497,3 +497,7 @@ a.personBtn:hover, a.personBtnSelected {
 .exMVP, .personTextNotselected{
     display: none;
 }
+.mvpPhoto{
+    width: 220px;
+    height: 220px;
+}
