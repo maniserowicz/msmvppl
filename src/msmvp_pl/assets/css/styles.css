@@ -162,6 +162,11 @@ header{
     background-color: #00aeef;
 }
 
+.twtr-doc {
+    border-radius: 0 !important;
+    -webkit-border-radius: 0 !important;
+}
+
 .twtr-hd>h3>a {
     color: #ffffff;
     font-size: 16px;
