@@ -1,8 +1,9 @@
 param([string]$username, [string]$password)
 
+$currentpath = Split-Path $MyInvocation.MyCommand.Definition
 $sourceuri = "ftp://ftp.msmvp.pl/msmvpdata.pl/wwwroot/App_Data/msmvp_data.sdf"
 $targeturi = "ftp://ftp.msmvp.pl/msmvp.pl/wwwroot/App_Data/msmvp_data.sdf"
-$targetpath = ".\msmvp_data.sdf"
+$targetpath = join-path $currentpath "msmvp_data.sdf"
 
 function prepareRequest{
   param([string]$uri)
