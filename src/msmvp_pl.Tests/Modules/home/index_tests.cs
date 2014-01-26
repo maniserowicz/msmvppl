@@ -18,7 +18,7 @@ namespace msmvp_pl.Tests.Modules.home
 
             var body = response.Body.AsString();
 
-            Assert.True(body.Length > 0);
+            Assert.False(body.Contains("errorText"));
         }
 
         [Fact]
