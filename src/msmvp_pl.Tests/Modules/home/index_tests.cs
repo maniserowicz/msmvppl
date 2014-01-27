@@ -30,6 +30,16 @@ namespace msmvp_pl.Tests.Modules.home
 
             Assert.False(body.Contains("errorText"));
         }
+        
+        [Fact]
+        public void renders_proper_view_without_error()
+        {
+            var response = execute();
+
+            var body = response.Body.AsString();
+
+            Assert.True(body.Contains("Witaj na stronie polskich MVP"));
+        }
 
         [Fact]
         public void does_not_pass_any_model()
