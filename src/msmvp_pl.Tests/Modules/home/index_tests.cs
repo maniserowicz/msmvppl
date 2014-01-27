@@ -12,7 +12,17 @@ namespace msmvp_pl.Tests.Modules.home
         }
 
         [Fact]
-        public void renders_view()
+        public void renders_something()
+        {
+            var response = execute();
+
+            var body = response.Body.AsString();
+
+            Assert.True(body.Length > 0);
+        }
+
+        [Fact]
+        public void renders_something_without_error()
         {
             var response = execute();
 
