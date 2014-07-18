@@ -475,6 +475,13 @@ a.personBtn:hover, a.personBtnSelected {
     float: left;
 }
 
+.personTextContent {
+    font-size: 11px;
+    color: #000000;
+    margin: 10px;
+    line-height: 180%;
+}
+
 .personText p{
     font-size: 11px;
     color: #000000;
