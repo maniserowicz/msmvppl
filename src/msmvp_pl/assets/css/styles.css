@@ -273,6 +273,10 @@ footer>a>img{
     border: 0;
 }
 
+footer>a>img.fb{
+    width: 30px;
+}
+
 .footContent{
     float: left;
 }
